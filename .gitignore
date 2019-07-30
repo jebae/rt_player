@@ -1,0 +1,9 @@
+test_main.c
+*.out
+*.sh
+*.sw*
+*.*.sw*
+.DS_Store
+kernels
+rtv1
+objs
