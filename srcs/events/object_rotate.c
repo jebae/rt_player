@@ -6,12 +6,10 @@ static void		event_object_rotate(
 )
 {
 	char		*objects_buf;
-	t_vec4		n;
 
 	objects_buf = select_object(
 		dispatcher->settings->objects_buf, dispatcher->object_index);
-	n = camera_z_axis(&(dispatcher->settings->cam));
-	object_rotate(objects_buf, &n, theta);
+	object_rotate(objects_buf, &(dispatcher->settings->cam.z_axis), theta);
 	render_by_mlx(dispatcher);
 }
 

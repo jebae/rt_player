@@ -23,9 +23,9 @@ t_camera				init_camera(t_vec4 pos, t_vec4 focus)
 	t_camera	cam;
 
 	cam.pos = pos;
-	cam.focus = focus;
 	cam.zoom = 1.0f;
 	cam.roll = 0.0f;
+	set_camera_axis(&cam, &focus);
 	return (cam);
 }
 
