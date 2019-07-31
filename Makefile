@@ -114,7 +114,7 @@ deps :
 	@$(MAKE) -C $(CLKIT_PATH) all
 	@$(MAKE) -C $(RT_PATH) all
 	@$(MAKE) -C $(ANIMATOR_PATH) all
-	@ln -sf $(RT_PATH)/kernels ./kernels
+	@ln -sf $(RT_PATH)/kernels ./
 
 pre_build :
 	@printf "$(KGRN)[rt_player] $(KYEL)build $(NAME)\n$(KNRM)"
