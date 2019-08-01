@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   object_rotate.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/08/01 17:13:43 by jebae             #+#    #+#             */
+/*   Updated: 2019/08/01 17:18:25 by jebae            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "rt_player.h"
 
 static void		event_object_rotate(
@@ -15,10 +27,10 @@ static void		event_object_rotate(
 
 void			key_comma(t_dispatcher *dispatcher)
 {
-	event_object_rotate(DEGREE_1 * 10.0f, dispatcher);
+	event_object_rotate(10.0f * DEGREE_1, dispatcher);
 }
 
 void			key_point(t_dispatcher *dispatcher)
 {
-	event_object_rotate(DEGREE_1 * -10.0f, dispatcher);
+	event_object_rotate(-10.0f * DEGREE_1, dispatcher);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   key_press.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/08/01 17:13:39 by jebae             #+#    #+#             */
+/*   Updated: 2019/08/01 17:17:10 by jebae            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "rt_player.h"
 
 static int		key_object_translate(int keycode, t_dispatcher *dispatcher)
@@ -105,28 +117,5 @@ int				key_press(int keycode, void *param)
 		return (1);
 	else if (key_camera_rotate(keycode, dispatcher) == RTP_TRUE)
 		return (1);
-	return (1);
-	/*
-	else if (keycode == KEY_A)
-		key_a(param);
-	else if (keycode == KEY_D)
-		key_d(param);
-	else if (keycode == KEY_W)
-		key_w(param);
-	else if (keycode == KEY_S)
-		key_s(param);
-	else if (keycode == KEY_COMMA)
-		key_comma(param);
-	else if (keycode == KEY_POINT)
-		key_point(param);
-	else if (keycode == KEY_J)
-		key_j(param);
-	else if (keycode == KEY_L)
-		key_l(param);
-	else if (keycode == KEY_I)
-		key_i(param);
-	else if (keycode == KEY_K)
-		key_k(param);
-	*/
 	return (1);
 }

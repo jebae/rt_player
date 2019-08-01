@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   camera_translate.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/08/01 17:13:34 by jebae             #+#    #+#             */
+/*   Updated: 2019/08/01 17:16:38 by jebae            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "rt_player.h"
 
 static void		event_camera_translate(t_vec4 *v, t_dispatcher *dispatcher)
@@ -10,8 +22,7 @@ static void		event_camera_translate(t_vec4 *v, t_dispatcher *dispatcher)
 	camera_translate(&(dispatcher->settings->cam), &mat);
 	set_rt_global_settings_ray_grid_props(
 		dispatcher->settings,
-		&(dispatcher->settings->cam)
-	);
+		&(dispatcher->settings->cam));
 	render_by_mlx(dispatcher);
 }
 

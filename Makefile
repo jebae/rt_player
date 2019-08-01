@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jebae <marvin@42.fr>                       +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/08/01 17:14:05 by jebae             #+#    #+#              #
+#    Updated: 2019/08/01 17:14:16 by jebae            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 # utils
 KRED=\033[0;31m
 KGRN=\033[0;32m
@@ -83,6 +95,7 @@ OBJS += $(addprefix $(OBJDIR)/,$(SRC_TESTS:.c=.o))
 # compile objs
 HEADERS = $(INCDIR)/rt_player.h\
 	$(RT_PATH)/includes/rt.h\
+	$(RT_PATH)/includes/rt_func.h\
 	$(RT_PATH)/includes/rt_args.h\
 	$(RT_PATH)/includes/rt_parallel.h\
 	$(RT_PATH)/includes/rt_struct.h\

@@ -1,15 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rt_player.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/08/01 17:18:49 by jebae             #+#    #+#             */
+/*   Updated: 2019/08/01 17:19:32 by jebae            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef RT_PLAYER_H
 # define RT_PLAYER_H
 
 # include <mlx.h>
-# include <stdio.h> // this will be removed after
 # include "rt.h"
-# include "rt_args.h"
-# include "rt_parallel.h"
-# include "rt_struct.h"
-# include "libft.h"
-# include "gmath.h"
-# include "clkit.h"
 # include "animator.h"
 
 # define RTP_TRUE						1
@@ -38,11 +43,11 @@ typedef struct			s_dispatcher
 {
 	int					parallel_mode;
 	int					object_index;
-    void				*p_mlx;
-    void				*p_win;
-    void				*p_img;
-    t_global_settings	*settings;
-    t_clkit				*clkit;
+	void				*p_mlx;
+	void				*p_win;
+	void				*p_img;
+	t_global_settings	*settings;
+	t_clkit				*clkit;
 }						t_dispatcher;
 
 /*
