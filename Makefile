@@ -6,7 +6,7 @@
 #    By: jebae <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/01 17:14:05 by jebae             #+#    #+#              #
-#    Updated: 2019/08/01 17:14:16 by jebae            ###   ########.fr        #
+#    Updated: 2019/08/19 19:29:10 by jebae            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,15 +36,19 @@ OBJDIR = objs
 
 INCDIR = includes
 
-LIBFT_PATH = ./graphics/libft
+LIBDIR = libs
 
-GMATH_PATH = ./graphics/gmath
+LIBFT_PATH = ./$(LIBDIR)/libft
 
-CLKIT_PATH = ./graphics/clkit
+GMATH_PATH = ./$(LIBDIR)/gmath
 
-RT_PATH = ./graphics/rt
+CLKIT_PATH = ./$(LIBDIR)/clkit
 
-ANIMATOR_PATH = ./graphics/animator
+RT_PATH = ./$(LIBDIR)/rt
+
+ANIMATOR_PATH = ./$(LIBDIR)/animator
+
+PARSER_PATH = ./$(LIBDIR)/parser
 
 # compiler options
 CFLAGS = -Wall -Wextra -Werror
@@ -55,13 +59,15 @@ INCLUDES = -I ./$(INCDIR)\
 	-I $(CLKIT_PATH)/includes\
 	-I $(RT_PATH)/includes\
 	-I $(ANIMATOR_PATH)/includes\
+	-I $(PARSER_PATH)/includes\
 
 LIBS = -lmlx\
-	-L ./graphics/libft -lft\
-	-L ./graphics/gmath -lgmath\
-	-L ./graphics/clkit -lclkit\
-	-L ./graphics/rt -lrt\
-	-L ./graphics/animator -lanimator\
+	-L ./$(LIBDIR)/libft -lft\
+	-L ./$(LIBDIR)/gmath -lgmath\
+	-L ./$(LIBDIR)/clkit -lclkit\
+	-L ./$(LIBDIR)/rt -lrt\
+	-L ./$(LIBDIR)/animator -lanimator\
+	-L ./$(LIBDIR)/parser -lparser\
 
 FRAMEWORKS = -framework OpenCL\
 	-framework OpenGL\
@@ -78,16 +84,23 @@ SRC_EVENTS = exit.c\
 SRC_SETTING = set_mlx.c\
 	set_rt_global_settings.c\
 
+SRC_MAP_SCENE = map_camera.c\
+	map_objects.c\
+	map_lights.c\
+	map_scene.c\
+
 SRC_UTILS = render_by_mlx.c\
 	mlx_get_img_buffer.c\
 
 # SRC_TESTS will removed after
 SRC_TESTS = scene1.test.c\
+	scene2.test.c\
 
 # objs
 OBJS = $(addprefix $(OBJDIR)/,$(SRC_EVENTS:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/,$(SRC_SETTING:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/,$(SRC_UTILS:.c=.o))
+OBJS += $(addprefix $(OBJDIR)/,$(SRC_MAP_SCENE:.c=.o))
 
 # this line will be removed after
 OBJS += $(addprefix $(OBJDIR)/,$(SRC_TESTS:.c=.o))
@@ -103,12 +116,15 @@ HEADERS = $(INCDIR)/rt_player.h\
 	$(GMATH_PATH)/includes/gmath.h\
 	$(CLKIT_PATH)/includes/clkit.h\
 	$(ANIMATOR_PATH)/includes/animator.h\
+	$(PARSER_PATH)/includes/parse.h\
 
 $(OBJDIR)/%.o : $(SRCDIR)/events/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 $(OBJDIR)/%.o : $(SRCDIR)/setting/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 $(OBJDIR)/%.o : $(SRCDIR)/utils/%.c $(HEADERS)
+	@$(call compile_obj,$<,$@)
+$(OBJDIR)/%.o : $(SRCDIR)/map_scene/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 
 # this line will be removed after
@@ -127,6 +143,7 @@ deps :
 	@$(MAKE) -C $(CLKIT_PATH) all
 	@$(MAKE) -C $(RT_PATH) all
 	@$(MAKE) -C $(ANIMATOR_PATH) all
+	@$(MAKE) -C $(PARSER_PATH) all
 	@ln -sf $(RT_PATH)/kernels ./
 
 pre_build :
@@ -145,6 +162,7 @@ clean :
 	@$(MAKE) -C $(CLKIT_PATH) clean
 	@$(MAKE) -C $(RT_PATH) clean
 	@$(MAKE) -C $(ANIMATOR_PATH) clean
+	@$(MAKE) -C $(PARSER_PATH) clean
 	@rm -rf $(OBJS)
 
 fclean : clean
@@ -153,6 +171,7 @@ fclean : clean
 	@$(MAKE) -C $(CLKIT_PATH) fclean
 	@$(MAKE) -C $(RT_PATH) fclean
 	@$(MAKE) -C $(ANIMATOR_PATH) fclean
+	@$(MAKE) -C $(PARSER_PATH) fclean
 	@rm -rf $(NAME)
 
 re : fclean all
