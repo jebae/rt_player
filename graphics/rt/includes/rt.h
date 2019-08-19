@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/01 17:06:36 by jebae             #+#    #+#             */
-/*   Updated: 2019/08/01 17:06:37 by jebae            ###   ########.fr       */
+/*   Updated: 2019/08/19 16:12:39 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "rt_args.h"
 # include "rt_func.h"
 # include "rt_parallel.h"
+# include "parse.h"
 
 # define RT_SUCCESS					1
 # define RT_FAIL					0

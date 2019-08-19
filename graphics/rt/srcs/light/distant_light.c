@@ -6,24 +6,19 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/01 17:00:44 by jebae             #+#    #+#             */
-/*   Updated: 2019/08/01 17:03:13 by jebae            ###   ########.fr       */
+/*   Updated: 2019/08/19 16:09:57 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-size_t		new_distant_light(
-	t_light_commons commons,
-	t_new_distant_light_args *args_light,
-	char *lights_buf
-)
+size_t		new_distant_light(t_lights *light, char *lights_buf)
 {
-	t_distant_light		light;
+	t_distant_light		dist_light;
 
-	light.commons = commons;
-	light.d = args_light->d;
-	light.d = normalize(&(light.d));
+	dist_light.commons = light->att;
+	dist_light.d = normalize(&(light->d));
 	write_mem_buf(
-		lights_buf, (char *)&light, sizeof(light), RT_LIGHT_TYPE_DISTANT);
-	return (sizeof(light) + sizeof(int));
+		lights_buf, (char *)&dist_light, sizeof(dist_light), RT_LIGHT_TYPE_DISTANT);
+	return (sizeof(dist_light) + sizeof(int));
 }

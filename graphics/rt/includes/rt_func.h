@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/01 17:06:55 by jebae             #+#    #+#             */
-/*   Updated: 2019/08/01 17:06:56 by jebae            ###   ########.fr       */
+/*   Updated: 2019/08/19 16:11:09 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "gmath.h"
 # include "rt_struct.h"
 # include "rt_args.h"
+# include "parse.h"
 
 typedef enum				e_rgb_shades_idx
 {
@@ -46,19 +47,9 @@ t_vec4						hit_point(t_ray *ray, float t);
 /*
 ** light
 */
-size_t						new_distant_light(
-	t_light_commons commons,
-	t_new_distant_light_args *args_light,
-	char *lights_buf
-);
+size_t						new_distant_light(t_lights *light, char *lights_buf);
 
-size_t						new_spherical_light(
-	t_light_commons commons,
-	t_new_spherical_light_args *args_light,
-	char *lights_buf
-);
-
-t_vec4						distant_light_direction(void *light, t_vec4 *point);
+size_t						new_spherical_light(t_lights *light, char *lights_buf);
 
 /*
 ** object
@@ -74,35 +65,15 @@ void						write_mem_buf(
 	int type
 );
 
-size_t						new_sphere(
-	t_object_commons commons,
-	t_new_sphere_args *args_sphere,
-	char *objects_buf
-);
+size_t						new_sphere(t_objects *object, char *objects_buf);
 
-size_t						new_cone(
-	t_object_commons commons,
-	t_new_cone_args *args_cone,
-	char *objects_buf
-);
+size_t						new_cone(t_objects *object, char *objects_buf);
 
-size_t						new_plane(
-	t_object_commons commons,
-	t_new_plane_args *args_plane,
-	char *objects_buf
-);
+size_t						new_plane(t_objects *object, char *objects_buf);
 
-size_t						new_triangle(
-	t_object_commons commons,
-	t_new_triangle_args *args_triangle,
-	char *objects_buf
-);
+size_t						new_cylinder(t_objects *object, char *objects_buf);
 
-size_t						new_cylinder(
-	t_object_commons commons,
-	t_new_cylinder_args *args_cylinder,
-	char *objects_buf
-);
+size_t						new_triangle(t_objects *object, char *objects_buf);
 
 /*
 ** utils

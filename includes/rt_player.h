@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/01 17:18:49 by jebae             #+#    #+#             */
-/*   Updated: 2019/08/01 17:19:32 by jebae            ###   ########.fr       */
+/*   Updated: 2019/08/19 16:30:20 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,12 @@
 # include <mlx.h>
 # include "rt.h"
 # include "animator.h"
+# include "parse.h"
 
 # define RTP_TRUE						1
 # define RTP_FALSE						0
+# define RTP_SUCCESS					1
+# define RTP_FAIL						0
 
 # define MLX_BPP						32
 # define MLX_ENDIAN						0
@@ -105,6 +108,31 @@ t_camera				init_camera(t_vec4 pos, t_vec4 focus);
 void					set_rt_global_settings_ray_grid_props(
 	t_global_settings *settings,
 	t_camera *cam
+);
+
+/*
+** map_scene
+*/
+int						map_scene(
+	t_utils *parse_res,
+	t_global_settings *settings
+);
+
+void					map_camera(
+	t_cam *cam_builder,
+	t_global_settings *settings
+);
+
+int						map_objects(
+	t_objects *objects,
+	int num_objects,
+	t_global_settings *settings
+);
+
+int						map_lights(
+	t_lights *lights,
+	int num_lights,
+	t_global_settings *settings
 );
 
 /*
