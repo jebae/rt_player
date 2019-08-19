@@ -1,0 +1,9 @@
+*.sw*
+*.out
+*.sh
+dumbmain.c
+.vscode
+test_main.c
+.DS_Store
+*.a
+objs

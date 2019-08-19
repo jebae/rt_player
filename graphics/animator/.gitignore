@@ -1,0 +1,9 @@
+*.sw*
+*.out
+*.a
+dumbmain.c
+.vscode
+*.sh
+objs
+kernels
+test_main.c
