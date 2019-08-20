@@ -32,6 +32,8 @@ CLKIT_PATH = ../clkit
 
 RT_PATH = ../rt
 
+PARSER_PATH = ../parser
+
 # compiler options
 CFLAGS = -Wall -Wextra -Werror
 
@@ -40,6 +42,7 @@ INCLUDES = -I ./$(INCDIR)\
 	-I $(GMATH_PATH)/includes\
 	-I $(CLKIT_PATH)/includes\
 	-I $(RT_PATH)/includes\
+	-I $(PARSER_PATH)/includes\
 
 # srcs
 SRC_OBJECT = cone.c\
