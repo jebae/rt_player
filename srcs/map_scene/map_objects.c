@@ -35,16 +35,17 @@ static int			set_objects_buf(
 	return (RTP_SUCCESS);
 }
 
-static void			write_object_by_type(t_objects *object, char *objects_buf)
+static size_t		write_object_by_type(t_objects *object, char *objects_buf)
 {
 	if (object->type == RT_OBJECT_TYPE_SPHERE)
-		objects_buf += new_sphere(object, objects_buf);
+		return (new_sphere(object, objects_buf));
 	else if (object->type == RT_OBJECT_TYPE_CONE)
-		objects_buf += new_cone(object, objects_buf);
+		return (new_cone(object, objects_buf));
 	else if (object->type == RT_OBJECT_TYPE_PLANE)
-		objects_buf += new_plane(object, objects_buf);
+		return (new_plane(object, objects_buf));
 	else if (object->type == RT_OBJECT_TYPE_CYLINDER)
-		objects_buf += new_cylinder(object, objects_buf);
+		return (new_cylinder(object, objects_buf));
+	return (0);
 }
 
 int					map_objects(
@@ -54,13 +55,15 @@ int					map_objects(
 )
 {
 	int		i;
+	char	*objects_buf;
 
-	if (set_objects_buf(objects, num_objects, settings) == RTP_FAIL)
+	if (set_objects_buf(objects, num_objects + 1, settings) == RTP_FAIL)
 		return (RTP_FAIL);
 	i = 0;
-	while (i < num_objects)
+	objects_buf = settings->objects_buf;
+	while (i < num_objects + 1)
 	{
-		write_object_by_type(&(objects[i]), settings->objects_buf);
+		objects_buf += write_object_by_type(&(objects[i]), objects_buf);
 		i++;
 	}
 	return (RTP_SUCCESS);

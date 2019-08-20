@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/01 17:00:57 by jebae             #+#    #+#             */
-/*   Updated: 2019/08/19 13:39:58 by jebae            ###   ########.fr       */
+/*   Updated: 2019/08/20 18:53:13 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ size_t		new_cylinder(t_objects *object, char *objects_buf)
 	t_cylinder			cylinder;
 
 	cylinder.commons = object->att;
+	cylinder.commons.color = object->color;
 	cylinder.r = object->r;
 	cylinder.h = object->h;
 	cylinder.c = object->c;

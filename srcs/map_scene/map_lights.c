@@ -31,12 +31,13 @@ static int			set_lights_buf(
 	return (RTP_SUCCESS);
 }
 
-static void			write_light_by_type(t_lights *light, char *lights_buf)
+static size_t		write_light_by_type(t_lights *light, char *lights_buf)
 {
 	if (light->type == RT_LIGHT_TYPE_DISTANT)
-		lights_buf += new_distant_light(light, lights_buf);
+		return (new_distant_light(light, lights_buf));
 	else if (light->type == RT_LIGHT_TYPE_SPHERICAL)
-		lights_buf += new_spherical_light(light, lights_buf);
+		return (new_spherical_light(light, lights_buf));
+	return (0);
 }
 
 int					map_lights(
@@ -46,13 +47,15 @@ int					map_lights(
 )
 {
 	int		i;
+	char	*lights_buf;
 
-	if (set_lights_buf(lights, num_lights, settings) == RTP_FAIL)
+	if (set_lights_buf(lights, num_lights + 1, settings) == RTP_FAIL)
 		return (RTP_FAIL);
 	i = 0;
-	while (i < num_lights)
+	lights_buf = settings->lights_buf;
+	while (i < num_lights + 1)
 	{
-		write_light_by_type(&(lights[i]), settings->lights_buf);
+		lights_buf += write_light_by_type(&(lights[i]), lights_buf);
 		i++;
 	}
 	return (RTP_SUCCESS);

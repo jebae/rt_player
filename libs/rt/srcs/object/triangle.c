@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/01 17:01:20 by jebae             #+#    #+#             */
-/*   Updated: 2019/08/19 16:08:49 by jebae            ###   ########.fr       */
+/*   Updated: 2019/08/20 19:02:17 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ size_t		new_triangle(t_objects *object, char *objects_buf)
 	t_triangle			triangle;
 
 	triangle.commons = object->att;
+	triangle.commons.color = object->color;
 	triangle.a = object->a;
 	triangle.u = object->u;
 	triangle.v = object->v;

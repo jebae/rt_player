@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/01 17:01:04 by jebae             #+#    #+#             */
-/*   Updated: 2019/08/19 13:39:20 by jebae            ###   ########.fr       */
+/*   Updated: 2019/08/20 19:02:00 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ size_t		new_plane(t_objects *object, char *objects_buf)
 	t_plane				plane;
 
 	plane.commons = object->att;
+	plane.commons.color = object->color;
 	plane.p = object->p;
 	plane.n = normalize(&(object->n));
 	write_mem_buf(

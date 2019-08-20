@@ -1,0 +1,105 @@
+scene{
+	camera{
+	location = 1.0f, 2.0f, 3.0, 1.0;
+	focus = 1.0, 2.0, 3.1, 1.0;
+	}
+	objects{
+		sphere{
+			specular_alpha = 50;
+			reflectivity = 0.2f;
+			transparency = 0.2f;
+			ior = 2.5f;
+			color = 0.9f, 0.6f, 0.1f, 1;
+			r = 1.0f;
+			c = 2.0f, 5.0f, 1.0f, 1.0f;
+			}
+		sphere{
+			specular_alpha = 50;
+			reflectivity = 0.2f;
+			transparency = 0.2f;
+			ior = 2.5f;
+			color = 0.9f, 0.6f, 0.1f, 1;
+			r = 1.0f;
+			c = 2.0f, 5.0f, 1.0f, 1.0f;
+			}
+		sphere{
+			specular_alpha = 50;
+			reflectivity = 0.2f;
+			transparency = 0.2f;
+			ior = 2.5f;
+			color = 0.9f, 0.6f, 0.1f, 1;
+			r = 1.0f;
+			c = 2.0f, 5.0f, 1.0f, 1.0f;
+			}
+		cylinder{
+			specular_alpha = 50;
+			reflectivity = 0.2f;
+			transparency = 0.0f;
+			ior = 1.5f;
+			color = 0.1f, 0.1f, 0.1f, 1;
+			r = 0.2f;
+			h = 5.0f;
+			c = 1.7f, 10.3f, 5.9f, 1.0f;
+			v = 1.0f, 0.5f, -0.8f, 1.0f;
+			}
+		plane{
+			reflectivity = 0.4f;
+			transparency = 0.1f;
+			specular_alpha = 50;
+			ior = 1.5;
+			color = 1.0f, 1.0f, 1.0f, 1;
+			n = 0.0f, 0.0f, 1.0f, 1;
+			p = 0.0f, 0.0f, -1.0f, 1;
+			}
+		cone{
+			specular_alpha = 50;
+			reflectivity = 0.2f;
+			transparency = 0.0f;
+			ior = 1.5f;
+			color = 0.1f, 0.1f, 0.1f, 1;
+			theta = 5.0f;
+			h = 2.5f;
+			c = 1.7f, 10.2f, 6.0f, 1.0f;
+			v = -1.0f, -0.0f, -3.0f, 1.0f;
+			}
+		plane{
+			reflectivity = 0.4f;
+			transparency = 0.1f;
+			specular_alpha = 50;
+			ior = 1.5;
+			color = 1.0f, 1.0f, 1.0f, 1;
+			n = 0.0f, 0.0f, 1.0f, 1;
+			p = 0.0f, 0.0f, -1.0f, 1;
+			}
+		cylinder{
+			specular_alpha = 50;
+			reflectivity = 0.2f;
+			transparency = 0.0f;
+			ior = 1.5f;
+			color = 0.1f, 0.1f, 0.1f, 1;
+			r = 0.2f;
+			h = 5.0f;
+			c = 1.7f, 10.3f, 5.9f, 1.0f;
+			v = 1.0f, 0.5f, -0.8f, 1.0f;
+			}
+		}
+	lights{
+		distant{
+			intensity = 0.5f, 0.5f, 0.5f, 0.0f;
+			d = 0.0f, 1.0f, -2.0f, 1;
+			}
+		spherical{
+			intensity = 30.0f, 30.0f, 30.0f, 0.0f;
+			origin = 1.0f, 10.0f, 4.0f, 1;
+			}
+		spherical{
+			intensity = 30.0f, 30.0f, 30.0f, 0.0f;
+			origin = 1.0f, 10.0f, 4.0f, 1;
+			}
+		distant{
+			intensity = 0.5f, 0.5f, 0.5f, 0.0f;
+			d = 0.0f, 1.0f, -2.0f, 1;
+			}
+
+		}
+}

@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/01 17:00:54 by jebae             #+#    #+#             */
-/*   Updated: 2019/08/19 13:38:21 by jebae            ###   ########.fr       */
+/*   Updated: 2019/08/20 19:01:45 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ size_t		new_cone(t_objects *object, char *objects_buf)
 	t_cone			cone;
 
 	cone.commons = object->att;
+	cone.commons.color = object->color;
 	cone.theta = object->theta;
 	cone.cos_2_theta = powf(cosf(cone.theta), 2);
 	cone.h = object->h;

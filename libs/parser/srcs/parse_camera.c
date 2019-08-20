@@ -6,7 +6,7 @@
 /*   By: almoraru <almoraru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 20:36:57 by almoraru          #+#    #+#             */
-/*   Updated: 2019/08/19 17:37:26 by jebae            ###   ########.fr       */
+/*   Updated: 2019/08/20 18:19:15 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	parse_camera(t_utils *u)
 		if (ft_strcmp(u->word, "focus") == 0)
 		{
 			if (check_for_number(u->str))
-				handle_4vec_number(u, &cam->pos, u->str);
+				handle_4vec_number(u, &cam->focus, u->str);
 		}
 		while (ft_isalnum(*u->buf) || is_skippable_char(*u->buf))
 			u->buf++;

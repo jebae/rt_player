@@ -6,7 +6,7 @@
 /*   By: almoraru <almoraru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 19:12:02 by almoraru          #+#    #+#             */
-/*   Updated: 2019/08/20 17:03:50 by almoraru         ###   ########.fr       */
+/*   Updated: 2019/08/20 18:32:25 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,9 +132,9 @@ char	*ft_cpynb(char *dest, char *src);
 ** NUMBER FUNCTIONS
 */
 void	handle_4vec_number(t_utils *u, t_vec4 *vec, char *str);
-void	handle_float_number(t_utils *u, float f, char *str);
-void	handle_theta_number(t_utils *u, float f, char *str);
-void	handle_int_number(t_utils *u, int i, char *str);
+void	handle_float_number(t_utils *u, float *f, char *str);
+void	handle_theta_number(t_utils *u, float *f, char *str);
+void	handle_int_number(t_utils *u, int *i, char *str);
 
 /*
 ** UTIL FUNCTIONS

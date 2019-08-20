@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/01 17:18:49 by jebae             #+#    #+#             */
-/*   Updated: 2019/08/19 16:30:20 by jebae            ###   ########.fr       */
+/*   Updated: 2019/08/20 17:10:07 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,6 +145,6 @@ char					*get_img_buffer(void *p_img, int width);
 /*
 ** test
 */
-void					test_scene1(int parallel_mode);
+void					test_scene2(char *scene_src, int parallel_mode);
 
 #endif

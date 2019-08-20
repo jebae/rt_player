@@ -6,7 +6,7 @@
 #    By: almoraru <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/03 10:41:01 by almoraru          #+#    #+#              #
-#    Updated: 2019/08/20 13:59:03 by almoraru         ###   ########.fr        #
+#    Updated: 2019/08/20 17:21:00 by jebae            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,14 +26,14 @@ COLOR4 = \x1b[0;36m
 
 COLOREND = \033[0;0m
 
-SRCS = $(SRC_DIR)/main.c $(SRC_DIR)/parse.c $(SRC_DIR)/parse_sphere.c			\
+SRCS = $(SRC_DIR)/parse.c $(SRC_DIR)/parse_sphere.c\
 $(SRC_DIR)/parse_camera.c $(SRC_DIR)/check_optional.c $(SRC_DIR)/parse_cylinder.c\
 $(SRC_DIR)/parse_plane.c $(SRC_DIR)/handle_numbers.c $(SRC_DIR)/parse_cone.c	 \
 $(SRC_DIR)/basic_checks.c $(SRC_DIR)/check_important.c $(SRC_DIR)/parse_utils.c  \
 $(SRC_DIR)/handle_strings.c $(SRC_DIR)/check_objects.c $(SRC_DIR)/init_parse.c   \
 $(SRC_DIR)/errors.c $(SRC_DIR)/parse_lights.c $(SRC_DIR)/check_lights.c
 
-NAME = parse.a
+NAME = libparse.a
 
 FLAGS = -Wall -Wextra -Werror -g #-fsanitize=address
 

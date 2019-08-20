@@ -6,7 +6,7 @@
 #    By: jebae <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/01 17:14:05 by jebae             #+#    #+#              #
-#    Updated: 2019/08/19 19:29:10 by jebae            ###   ########.fr        #
+#    Updated: 2019/08/20 17:15:04 by jebae            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,7 @@ LIBS = -lmlx\
 	-L ./$(LIBDIR)/clkit -lclkit\
 	-L ./$(LIBDIR)/rt -lrt\
 	-L ./$(LIBDIR)/animator -lanimator\
-	-L ./$(LIBDIR)/parser -lparser\
+	-L ./$(LIBDIR)/parser -lparse\
 
 FRAMEWORKS = -framework OpenCL\
 	-framework OpenGL\
@@ -93,8 +93,7 @@ SRC_UTILS = render_by_mlx.c\
 	mlx_get_img_buffer.c\
 
 # SRC_TESTS will removed after
-SRC_TESTS = scene1.test.c\
-	scene2.test.c\
+SRC_TESTS = scene2.test.c\
 
 # objs
 OBJS = $(addprefix $(OBJDIR)/,$(SRC_EVENTS:.c=.o))
