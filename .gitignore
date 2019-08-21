@@ -5,6 +5,8 @@ test_main.c
 *.*.sw*
 .DS_Store
 kernels
-!graphics/rt/kernels
+!libs/rt/kernels
 rtv1
 objs
+*.o
+*.a
