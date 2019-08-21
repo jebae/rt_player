@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/01 17:13:39 by jebae             #+#    #+#             */
-/*   Updated: 2019/08/01 17:17:10 by jebae            ###   ########.fr       */
+/*   Updated: 2019/08/21 14:53:22 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,8 @@ int				key_press(int keycode, void *param)
 	else if (key_camera_translate(keycode, dispatcher) == RTP_TRUE)
 		return (1);
 	else if (key_camera_rotate(keycode, dispatcher) == RTP_TRUE)
+		return (1);
+	else if (key_select_object(keycode, dispatcher) == RTP_TRUE)
 		return (1);
 	return (1);
 }

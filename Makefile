@@ -6,7 +6,7 @@
 #    By: jebae <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/01 17:14:05 by jebae             #+#    #+#              #
-#    Updated: 2019/08/20 17:15:04 by jebae            ###   ########.fr        #
+#    Updated: 2019/08/21 14:54:57 by jebae            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,10 +76,12 @@ FRAMEWORKS = -framework OpenCL\
 # srcs
 SRC_EVENTS = exit.c\
 	key_press.c\
+	key_press2.c\
 	object_translate.c\
 	object_rotate.c\
 	camera_translate.c\
 	camera_rotate.c\
+	select_object.c\
 
 SRC_SETTING = set_mlx.c\
 	set_rt_global_settings.c\

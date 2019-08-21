@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/01 17:18:49 by jebae             #+#    #+#             */
-/*   Updated: 2019/08/20 17:10:07 by jebae            ###   ########.fr       */
+/*   Updated: 2019/08/21 14:52:45 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@
 # define KEY_L							37
 # define KEY_I							34
 # define KEY_K							40
+# define KEY_LEFT_BRACKET				33
+# define KEY_RIGHT_BRACKET				30
 
 typedef struct			s_dispatcher
 {
@@ -58,6 +60,8 @@ typedef struct			s_dispatcher
 */
 int						key_press(int keycode, void *param);
 
+int						key_select_object(int keycode, t_dispatcher *dispatcher);
+
 void					key_esc(t_dispatcher *dispatcher);
 
 void					key_left(t_dispatcher *dispatcher);
@@ -69,6 +73,8 @@ void					key_up(t_dispatcher *dispatcher);
 void					key_down(t_dispatcher *dispatcher);
 
 void					key_comma(t_dispatcher *dispatcher);
+
+void					key_point(t_dispatcher *dispatcher);
 
 void					key_a(t_dispatcher *dispatcher);
 
@@ -86,7 +92,9 @@ void					key_i(t_dispatcher *dispatcher);
 
 void					key_k(t_dispatcher *dispatcher);
 
-void					key_point(t_dispatcher *dispatcher);
+void					key_left_bracket(t_dispatcher *dispatcher);
+
+void					key_right_bracket(t_dispatcher *dispatcher);
 
 /*
 ** setting
