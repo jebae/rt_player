@@ -6,41 +6,72 @@
 /*   By: almoraru <almoraru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 21:09:29 by almoraru          #+#    #+#             */
-/*   Updated: 2019/08/20 18:34:00 by jebae            ###   ########.fr       */
+/*   Updated: 2019/08/31 17:28:55 by almoraru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
-void	check_optional_light_properties(t_utils *u, t_light_commons *att)
+void	check_optional_light_properties(t_utils *u
+								, t_light_commons *att, char *str)
 {
-	if (ft_strcmp(u->word, "intensity") == 0)
+	t_str	*s;
+	t_num	*nb;
+
+	s = &u->s;
+	nb = &u->nb;
+	if (ft_strcmp(s->word, "intensity") == 0)
 	{
-		if (check_for_number(u->str))
-			handle_4vec_number(u, &att->intensity, u->str);
+		nb->intensity++;
+		if (check_for_number(s->str))
+			handle_4vec_number(u, &att->intensity, s->str);
+		check_for_duplicates_optional(u, str, nb->intensity);
 	}
 }
 
-void	check_optional_properties(t_utils *u, t_object_commons *att)
+void	check_optional_properties2(t_utils *u, t_object_commons *att, char *str)
 {
-	if (ft_strcmp(u->word, "specular_alpha") == 0)
+	t_str	*s;
+	t_num	*nb;
+
+	s = &u->s;
+	nb = &u->nb;
+	if (ft_strcmp(s->word, "transparency") == 0)
 	{
-		if (check_for_number(u->str))
-			handle_int_number(u, &att->specular_alpha, u->str);
+		nb->transparency++;
+		if (check_for_number(s->str))
+			handle_float_number(u, s->str, &att->transparency);
+		check_for_duplicates_optional(u, str, nb->transparency);
 	}
-	if (ft_strcmp(u->word, "reflectivity") == 0)
+	if (ft_strcmp(s->word, "ior") == 0)
 	{
-		if (check_for_number(u->str))
-			handle_float_number(u, &att->reflectivity, u->str);
+		nb->ior++;
+		if (check_for_number(s->str))
+			handle_float_number(u, s->str, &att->ior);
+		check_for_duplicates_optional(u, str, nb->ior);
 	}
-	if (ft_strcmp(u->word, "transparency") == 0)
+}
+
+void	check_optional_properties(t_utils *u, t_object_commons *att, char *str)
+{
+	t_str	*s;
+	t_num	*nb;
+
+	s = &u->s;
+	nb = &u->nb;
+	if (ft_strcmp(s->word, "specular_alpha") == 0)
 	{
-		if (check_for_number(u->str))
-			handle_float_number(u, &att->transparency, u->str);
+		nb->specular_alpha++;
+		if (check_for_number(s->str))
+			handle_int_number(u, s->str, &att->specular_alpha);
+		check_for_duplicates_optional(u, str, nb->specular_alpha);
 	}
-	if (ft_strcmp(u->word, "ior") == 0)
+	if (ft_strcmp(s->word, "reflectivity") == 0)
 	{
-		if (check_for_number(u->str))
-			handle_float_number(u, &att->ior, u->str);
+		nb->reflectivity++;
+		if (check_for_number(s->str))
+			handle_float_number(u, s->str, &att->reflectivity);
+		check_for_duplicates_optional(u, str, nb->reflectivity);
 	}
+	check_optional_properties2(u, att, str);
 }

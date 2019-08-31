@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_important.c                                  :+:      :+:    :+:   */
+/*   check_utils_lights.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: almoraru <almoraru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/18 18:03:41 by almoraru          #+#    #+#             */
-/*   Updated: 2019/08/30 16:33:37 by almoraru         ###   ########.fr       */
+/*   Created: 2019/08/31 15:14:02 by almoraru          #+#    #+#             */
+/*   Updated: 2019/08/31 15:16:28 by almoraru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
-int		check_important(t_utils *u, char *str)
+void	check_number_of_spherical_light(t_utils *u, char *str)
 {
-	t_num	*nb;
+	t_num *nb;
 
 	nb = &u->nb;
-	if ((ft_strcmp(str, "scene")) == 0)
-	{
-		u->scene++;
-		return (1);
-	}
-	if ((ft_strcmp(str, "camera")) == 0)
-	{
-		nb->cam++;
-		check_for_duplicates(u, str, nb->cam);
-		parse_camera(u, str);
-		return (1);
-	}
-	return (0);
+	if (nb->origin != 1)
+		ft_error_parse(u, str, "Wrong plane parameters!");
+	ft_bzero(nb, sizeof(nb) * 10);
+}
+
+void	check_number_of_directional_light(t_utils *u, char *str)
+{
+	t_num *nb;
+
+	nb = &u->nb;
+	if (nb->d != 1)
+		ft_error_parse(u, str, "Wrong plane parameters!");
+	ft_bzero(nb, sizeof(nb) * 10);
 }

@@ -11,8 +11,7 @@ void				test_scene2(char *scene_src, int parallel_mode)
 	t_utils					parse_res;
 
 	ft_bzero(&parse_res, sizeof(parse_res));
-	if (parse(&parse_res, scene_src))
-		ft_error("Parsing failed!");
+	parse(&parse_res, scene_src);
 
 	dispatcher.parallel_mode = parallel_mode;
 	dispatcher.settings = &settings;

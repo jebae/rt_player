@@ -6,85 +6,79 @@
 /*   By: almoraru <almoraru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 19:10:13 by almoraru          #+#    #+#             */
-/*   Updated: 2019/08/18 19:27:40 by almoraru         ###   ########.fr       */
+/*   Updated: 2019/08/31 14:42:30 by almoraru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
-int		check_line(t_utils *u, char *str)
+void	check_line(t_utils *u, char *str)
 {
-	int match_important;
-	int match_objects;
-	int match_lights;
+	t_togs	*t;
+	t_num	*nb;
+	int		match_important;
+	int		match_objects;
+	int		match_lights;
 
-	match_important = 0;
-	match_objects = 0;
-	match_lights = 0;
+	t = &u->t;
+	nb = &u->nb;
 	match_important = check_important(u, str);
 	match_objects = check_objects(u, str);
 	match_lights = check_lights(u, str);
-	printf("match ? = %d\n", match_important);
-	if (match_important != 1 && u->optional == 0)
-	{
-		printf("string = %s\n", str);
-		return (ERROR);
-	}
+	if (match_important != 1 && t->optional == 0)
+		ft_error_parse(u, str, "Not enough options to even start a window!");
 	if (match_objects == ERROR || match_important == ERROR ||
-		match_lights == ERROR || u->nb_scene != 1)
-		return (ERROR);
-	return (GOOD);
+		match_lights == ERROR || u->scene != 1)
+		ft_error_parse(u, str, "Wrong number of options!");
 }
 
-int		parse_through_file(t_utils *u, char *str)
+void	parse_through_file(t_utils *u, char *str)
 {
-	// TODO(almoraru): CHECK THAT SCENE IS THE FIRST WORD OF THE FILE. CAMERA IS SECOND ETC...
-	while (*u->buf != '\0')
+	t_str *s;
+
+	s = &u->s;
+	while (*s->buf != '\0')
 	{
-		if (ft_str_new_line_len(u->buf) > 1024)
-			return (ERROR);
-		ft_cpy_word(str, u->buf);
+		if (ft_str_new_line_len(s->buf) > 1024)
+			ft_error_parse(u, str, "Line is too long!");
+		ft_cpy_word(str, s->buf);
 		if (ft_strcmp(str, "") == 0)
 		{
-			while (!(ft_isalnum(*u->buf)) && *u->buf != '\0')
-				u->buf++;
-			ft_cpy_word(str, u->buf);
+			while (!(ft_isalnum(*s->buf)) && *s->buf != '\0')
+				s->buf++;
+			ft_cpy_word(str, s->buf);
 		}
-		printf("---------\nLINE COPIED !!\n%s\n---------\n", str);
-		if ((check_line(u, str) == ERROR))
-			return (ERROR);
-		while (*u->buf != '\n' && *u->buf != '\0')
-			u->buf++;
+		check_line(u, str);
+		while (*s->buf != '\n' && *s->buf != '\0')
+			s->buf++;
 	}
-	return (GOOD);
 }
 
-int		parse(t_utils *u, char *av)
+void	parse(t_utils *u, char *av)
 {
-	int		fd;
+	t_str	*s;
+	t_num	*nb;
 	char	*str;
+	int		fd;
+	int		size;
 
 	if (!(str = (char *)ft_memalloc(2048)))
-		return (ERROR);
+		ft_error("First allocation failed!");
 	if (init_parse(u) == ERROR)
-		return (ERROR);
+		ft_error_parse(u, str, "Failed to malloc strings needed!");
+	s = &u->s;
+	nb = &u->nb;
 	if ((fd = open(av, O_RDONLY)) < 0)
-		ft_error("Failed to open file!\nusage: ./RTv1 [file]");
-	u->size = read(fd, u->buf, BUFF_SIZE);
-	if (u->size >= BUFF_SIZE)
-		return (ERROR);
+		ft_error_parse(u, str, "Failed to open file!\nusage: ./RTv1 [file]");
+	size = read(fd, s->buf, BUFF_SIZE);
+	if (size > BUFF_SIZE)
+		ft_error_parse(u, str, "File is too big!");
 	(void)close(fd);
-	if ((pre_check(u->buf)) == ERROR)
-		return (ERROR);
+	if ((pre_check(s->buf)) == ERROR)
+		ft_error_parse(u, str, "Are you even trying?");
 	if ((check_basics(u)) == ERROR)
-		return (ERROR);
-	if (u->nb_bracket_o != u->nb_bracket_c)
-	{
-		printf("Brackets = open %d | closed %d\n", u->nb_bracket_o, u->nb_bracket_c);
-		return (ERROR);
-	}
-	if (parse_through_file(u, str) == ERROR)
-		return (ERROR);
-	printf("SO THE NUMBER OF OBJETCS = %d\nAND NUMBER OF LIGHTS = %d\n", u->index + 1, u->light_index + 1);
-	return (GOOD);
+		ft_error_parse(u, str, "Basic checks failed!");
+	if (nb->bracket_o != nb->bracket_c)
+		ft_error_parse(u, str, "Uneven number of open and closed brackets!");
+	parse_through_file(u, str);
 }

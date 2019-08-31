@@ -6,13 +6,13 @@
 /*   By: almoraru <almoraru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/18 18:00:10 by almoraru          #+#    #+#             */
-/*   Updated: 2019/08/18 18:03:32 by almoraru         ###   ########.fr       */
+/*   Updated: 2019/08/30 14:52:11 by almoraru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
-int	pre_check(char *buf)
+int		pre_check(char *buf)
 {
 	if (!(ft_isalpha(*buf)))
 		return (ERROR);
@@ -29,18 +29,23 @@ int	pre_check(char *buf)
 
 int		check_brackets(t_utils *u, int i)
 {
-	if (u->buf[i] == '{')
+	t_str	*s;
+	t_num	*nb;
+
+	s = &u->s;
+	nb = &u->nb;
+	if (s->buf[i] == '{')
 	{
-		++u->nb_bracket_o;
+		++nb->bracket_o;
 		i++;
-		if (u->buf[i] != '\n')
+		if (s->buf[i] != '\n')
 			return (-1);
 	}
-	if (u->buf[i] == '}')
+	if (s->buf[i] == '}')
 	{
-		++u->nb_bracket_c;
+		++nb->bracket_c;
 		i++;
-		if (u->buf[i] != '\n')
+		if (s->buf[i] != '\n')
 			return (-1);
 	}
 	return (i);
@@ -48,16 +53,18 @@ int		check_brackets(t_utils *u, int i)
 
 int		check_basics(t_utils *u)
 {
-	int i;
+	t_str	*s;
+	int		i;
 
 	i = -1;
-	while (u->buf[++i] != '\0')
+	s = &u->s;
+	while (s->buf[++i] != '\0')
 	{
 		i = check_brackets(u, i);
 		if (i == -1)
 			return (ERROR);
-		if (u->buf[i] == ';' && u->buf[i] != '\0')
-			i = check_dot_comma(u->buf, i);
+		if (s->buf[i] == ';' && s->buf[i] != '\0')
+			i = check_dot_comma(s->buf, i);
 		if (i == -1)
 			return (ERROR);
 	}

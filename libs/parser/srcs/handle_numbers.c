@@ -6,113 +6,91 @@
 /*   By: almoraru <almoraru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/18 17:05:26 by almoraru          #+#    #+#             */
-/*   Updated: 2019/08/20 18:32:10 by jebae            ###   ########.fr       */
+/*   Updated: 2019/08/31 15:17:52 by almoraru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
-//TODO: if someone puts float for int I'll return error
-void	handle_int_number(t_utils *u, int *i, char *str)
+void	handle_int_number(t_utils *u, char *str, int *i)
 {
-	ft_getnumbers(u->number, str);
-	printf("what is str %s\n", str);
-	printf("nb copied = %s\n", u->number);
-	while (*u->number != '\0')
+	t_str	*s;
+
+	s = &u->s;
+	ft_getnumbers(s->number, str);
+	while (*s->number != '\0')
 	{
-		ft_cpynb(u->sub_nb, u->number);
-		printf("sub_nb copied = %s\n", u->sub_nb);
-		if (check_sub(u->sub_nb))
-			puts("THIS IS AN ERROR WILL RETURN ERROR LATER");
-		*i = ft_atoi(u->sub_nb);
-		printf("INT DETECTED\n");
-		while (*u->number != ',' && *u->number != '\0')
-			u->number++;
-		u->number++;
+		ft_cpynb(s->sub_nb, s->number);
+		if (check_sub(s->sub_nb))
+			ft_error_parse(u, str, "This number requires an int, not float!");
+		*i = ft_atoi(s->sub_nb);
+		while (*s->number != ',' && *s->number != '\0')
+			s->number++;
+		s->number++;
 	}
 }
 
-void	handle_theta_number(t_utils *u, float *f, char *str)
+void	handle_theta_number(t_utils *u, char *str, float *f)
 {
-	ft_getnumbers(u->number, str);
-	printf("what is str %s\n", str);
-	printf("nb copied = %s\n", u->number);
-	while (*u->number != '\0')
+	t_str	*s;
+
+	s = &u->s;
+	ft_getnumbers(s->number, str);
+	while (*s->number != '\0')
 	{
-		ft_cpynb(u->sub_nb, u->number);
-		printf("\nsub_nb copied = %s\n", u->sub_nb);
-		if (check_sub(u->sub_nb))
-		{
-			*f = M_PI / ft_atof(u->sub_nb);
-			printf("FLOAT DETECTED\n");
-		}
+		ft_cpynb(s->sub_nb, s->number);
+		if (check_sub(s->sub_nb))
+			*f = M_PI / ft_atof(s->sub_nb);
 		else
-		{
-			*f = M_PI / ft_atoi(u->sub_nb);
-			printf("INT DETECTED\n");
-		}
-		while (*u->number != ',' && *u->number != '\0')
-			u->number++;
-		u->number++;
+			*f = M_PI / ft_atoi(s->sub_nb);
+		while (*s->number != ',' && *s->number != '\0')
+			s->number++;
+		s->number++;
 	}
 }
 
-void	handle_float_number(t_utils *u, float *f, char *str)
+void	handle_float_number(t_utils *u, char *str, float *f)
 {
-	ft_getnumbers(u->number, str);
-	printf("what is str %s\n", str);
-	printf("nb copied = %s\n", u->number);
-	while (*u->number != '\0')
+	t_str	*s;
+
+	s = &u->s;
+	ft_getnumbers(s->number, str);
+	while (*s->number != '\0')
 	{
-		ft_cpynb(u->sub_nb, u->number);
-		printf("\nsub_nb copied = %s\n", u->sub_nb);
-		if (check_sub(u->sub_nb))
-		{
-			*f = ft_atof(u->sub_nb);
-			printf("FLOAT DETECTED\n");
-		}
+		ft_cpynb(s->sub_nb, s->number);
+		if (check_sub(s->sub_nb))
+			*f = ft_atof(s->sub_nb);
 		else
-		{
-			*f = ft_atoi(u->sub_nb);
-			printf("INT DETECTED\n");
-		}
-		while (*u->number != ',' && *u->number != '\0')
-			u->number++;
-		u->number++;
+			*f = ft_atoi(s->sub_nb);
+		while (*s->number != ',' && *s->number != '\0')
+			s->number++;
+		s->number++;
 	}
 }
 
 void	handle_4vec_number(t_utils *u, t_vec4 *vec, char *str)
 {
-	int i;
+	t_str	*s;
+	int		i;
 
 	i = 0;
-	ft_getnumbers(u->number, str);
-	printf("what is str %s\n", str);
-	printf("nb copied = %s\n", u->number);
-	while (*u->number != '\0')
+	s = &u->s;
+	ft_getnumbers(s->number, str);
+	while (*s->number != '\0')
 	{
-		ft_cpynb(u->sub_nb, u->number);
-		printf("sub_nb copied = %s\n", u->sub_nb);
-		if (check_sub(u->sub_nb))
+		ft_cpynb(s->sub_nb, s->number);
+		if (check_sub(s->sub_nb))
 		{
-			vec->arr[i]= ft_atof(u->sub_nb);
-			printf("FLOAT DETECTED\n");
+			vec->arr[i] = ft_atof(s->sub_nb);
 			i++;
 		}
 		else
 		{
-			vec->arr[i] = ft_atoi(u->sub_nb);
-			printf("INT DETECTED\n");
+			vec->arr[i] = ft_atoi(s->sub_nb);
 			i++;
 		}
-		while (*u->number != ',' && *u->number != '\0')
-			u->number++;
-		u->number++;
+		while (*s->number != ',' && *s->number != '\0')
+			s->number++;
+		s->number++;
 	}
-	// This is to print
-	i = -1;
-	while (++i < 4)
-		printf("NUMBER = %f|\n", vec->arr[i]);
-
 }

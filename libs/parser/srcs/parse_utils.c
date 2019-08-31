@@ -6,7 +6,7 @@
 /*   By: almoraru <almoraru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/18 18:02:14 by almoraru          #+#    #+#             */
-/*   Updated: 2019/08/18 18:03:11 by almoraru         ###   ########.fr       */
+/*   Updated: 2019/08/31 15:19:30 by almoraru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int		check_for_number(char *str)
 {
 	while (*str != '\0')
 		if (ft_isdigit(*str++))
-		return (1);
+			return (1);
 	return (0);
 }
 
@@ -45,7 +45,7 @@ int		is_space_or_comma(char c)
 	return (0);
 }
 
-int	is_skippable_char(char c)
+int		is_skippable_char(char c)
 {
 	if (c == ',' || c == '.' || c == ';' ||
 		c == '=' || c == '\t' || c == '{' ||

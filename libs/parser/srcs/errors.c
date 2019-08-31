@@ -6,17 +6,25 @@
 /*   By: almoraru <almoraru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/18 18:28:14 by almoraru          #+#    #+#             */
-/*   Updated: 2019/08/18 18:28:21 by almoraru         ###   ########.fr       */
+/*   Updated: 2019/08/31 14:15:43 by almoraru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
+void	ft_error_parse(t_utils *u, char *str, char *error)
+{
+	ft_putendl(error);
+	ft_putendl("Freeing...");
+	free_strings(u, str);
+	ft_putendl("Done!");
+	exit(1);
+}
+
 void	ft_error(char *error)
 {
-	ft_putstr(error);
-	ft_putstr(" | Freeing...");
-	// TODO(almoraru): add freeing functions
-	ft_putendl("Done");
+	ft_putendl(error);
+	ft_putendl("No allocations were made before this point!");
+	ft_putendl("Done!");
 	exit(1);
 }
