@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/01 17:18:49 by jebae             #+#    #+#             */
-/*   Updated: 2019/08/31 17:29:12 by almoraru         ###   ########.fr       */
+/*   Updated: 2019/09/02 18:49:33 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@
 # define KEY_LEFT_BRACKET				33
 # define KEY_RIGHT_BRACKET				30
 
-# define WIDTH							1000
-# define HEIGHT							800
+# define WIDTH							1600
+# define HEIGHT							1200
 
 typedef struct			s_dispatcher
 {
@@ -63,7 +63,10 @@ typedef struct			s_dispatcher
 */
 int						key_press(int keycode, void *param);
 
-int						key_select_object(int keycode, t_dispatcher *dispatcher);
+int						key_select_object(
+	int keycode,
+	t_dispatcher *dispatcher
+);
 
 void					key_esc(t_dispatcher *dispatcher);
 

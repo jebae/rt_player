@@ -6,7 +6,7 @@
 #    By: jebae <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/01 17:14:05 by jebae             #+#    #+#              #
-#    Updated: 2019/08/21 14:54:57 by jebae            ###   ########.fr        #
+#    Updated: 2019/09/02 18:55:01 by jebae            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -169,6 +169,7 @@ fclean : clean
 	@$(MAKE) -C $(ANIMATOR_PATH) fclean
 	@$(MAKE) -C $(PARSER_PATH) fclean
 	@rm -rf $(NAME)
+	@rm -rf ./kernels
 
 re : fclean all
 

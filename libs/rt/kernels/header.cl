@@ -10,8 +10,9 @@
 #define RT_BACKGROUND_COLOR				0x000000
 
 #define RT_RAY_TYPE_NONE				0
-#define RT_RAY_TYPE_REFLECTION			1
+#define RT_RAY_TYPE_ORIGIN				1
 #define RT_RAY_TYPE_REFRACTION			2
+#define RT_RAY_TYPE_REFLECTION			3
 
 #define RT_OBJECT_TYPE_SPHERE			0
 #define RT_OBJECT_TYPE_CONE				1
@@ -22,7 +23,7 @@
 #define RT_LIGHT_TYPE_DISTANT			0
 #define RT_LIGHT_TYPE_SPHERICAL			1
 
-#define RT_MAX_DEPTH					5
+#define RT_MAX_DEPTH					3
 #define RT_MAX_RECORD					63
 #define RT_BIAS							1e-3
 
