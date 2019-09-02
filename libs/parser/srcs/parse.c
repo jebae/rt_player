@@ -69,7 +69,7 @@ void	parse(t_utils *u, char *av)
 	s = &u->s;
 	nb = &u->nb;
 	if ((fd = open(av, O_RDONLY)) < 0)
-		ft_error_parse(u, str, "Failed to open file!\nusage: ./RTv1 [file]");
+		ft_error_parse(u, str, "Failed to open file!\nusage: ./rtv1 [file]");
 	size = read(fd, s->buf, BUFF_SIZE);
 	if (size > BUFF_SIZE)
 		ft_error_parse(u, str, "File is too big!");
@@ -81,4 +81,5 @@ void	parse(t_utils *u, char *av)
 	if (nb->bracket_o != nb->bracket_c)
 		ft_error_parse(u, str, "Uneven number of open and closed brackets!");
 	parse_through_file(u, str);
+	free(str);
 }

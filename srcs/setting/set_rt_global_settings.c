@@ -14,16 +14,16 @@
 
 t_global_settings		init_rt_global_settings(
 	t_dispatcher *dispatcher,
-	float width,
-	float height
+	int width,
+	int height
 )
 {
 	static t_vec4		i_a = (t_vec4){{0.05f, 0.05f, 0.05f, 1.0f}};
 	t_global_settings	settings;
 
 	settings.parallel_mode = dispatcher->parallel_mode;
-	settings.window_width = (int)width;
-	settings.window_height = (int)height;
+	settings.window_width = width;
+	settings.window_height = height;
 	settings.i_a = i_a;
 	settings.img_buf = (int *)get_img_buffer(
 		dispatcher->p_img, settings.window_width);

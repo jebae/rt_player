@@ -44,6 +44,9 @@
 # define KEY_LEFT_BRACKET				33
 # define KEY_RIGHT_BRACKET				30
 
+# define WIDTH							1000
+# define HEIGHT							800
+
 typedef struct			s_dispatcher
 {
 	int					parallel_mode;
@@ -101,14 +104,14 @@ void					key_right_bracket(t_dispatcher *dispatcher);
 */
 void					set_mlx(
 	t_dispatcher *dispatcher,
-	float width,
-	float height
+	int width,
+	int height
 );
 
 t_global_settings		init_rt_global_settings(
 	t_dispatcher *dispatcher,
-	float width,
-	float height
+	int width,
+	int height
 );
 
 t_camera				init_camera(t_vec4 pos, t_vec4 focus);

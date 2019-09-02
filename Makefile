@@ -74,6 +74,8 @@ FRAMEWORKS = -framework OpenCL\
 	-framework AppKit\
 
 # srcs
+SRC_MAIN = main.c\
+
 SRC_EVENTS = exit.c\
 	key_press.c\
 	key_press2.c\
@@ -94,17 +96,12 @@ SRC_MAP_SCENE = map_camera.c\
 SRC_UTILS = render_by_mlx.c\
 	mlx_get_img_buffer.c\
 
-# SRC_TESTS will removed after
-SRC_TESTS = scene2.test.c\
-
 # objs
-OBJS = $(addprefix $(OBJDIR)/,$(SRC_EVENTS:.c=.o))
+OBJS = $(addprefix $(OBJDIR)/,$(SRC_MAIN:.c=.o))
+OBJS += $(addprefix $(OBJDIR)/,$(SRC_EVENTS:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/,$(SRC_SETTING:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/,$(SRC_UTILS:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/,$(SRC_MAP_SCENE:.c=.o))
-
-# this line will be removed after
-OBJS += $(addprefix $(OBJDIR)/,$(SRC_TESTS:.c=.o))
 
 # compile objs
 HEADERS = $(INCDIR)/rt_player.h\
@@ -119,6 +116,8 @@ HEADERS = $(INCDIR)/rt_player.h\
 	$(ANIMATOR_PATH)/includes/animator.h\
 	$(PARSER_PATH)/includes/parse.h\
 
+$(OBJDIR)/%.o : $(SRCDIR)/%.c $(HEADERS)
+	@$(call compile_obj,$<,$@)
 $(OBJDIR)/%.o : $(SRCDIR)/events/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 $(OBJDIR)/%.o : $(SRCDIR)/setting/%.c $(HEADERS)
@@ -128,15 +127,11 @@ $(OBJDIR)/%.o : $(SRCDIR)/utils/%.c $(HEADERS)
 $(OBJDIR)/%.o : $(SRCDIR)/map_scene/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 
-# this line will be removed after
-$(OBJDIR)/%.o : $(SRCDIR)/__tests__/%.c $(HEADERS)
-	@$(call compile_obj,$<,$@)
-
 # build
 all : $(NAME)
 
 $(NAME) : deps pre_build $(OBJDIR) $(OBJS) post_build
-	@$(CC) $(CFLAGS) $(INCLUDES) $(LIBS) $(FRAMEWORKS) $(OBJS) test_main.c -o $(NAME)
+	@$(CC) $(CFLAGS) $(INCLUDES) $(LIBS) $(FRAMEWORKS) $(OBJS) -o $(NAME)
 
 deps :
 	@$(MAKE) -C $(LIBFT_PATH) all
