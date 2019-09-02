@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/02 18:48:11 by jebae             #+#    #+#             */
+/*   Updated: 2019/09/02 18:48:27 by jebae            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "rt_player.h"
 
 static void		play(char *scene_src, int parallel_mode)
@@ -30,7 +42,7 @@ static int		print_usage(void)
 	return (0);
 }
 
-int		main(int argc, char **argv)
+int				main(int argc, char **argv)
 {
 	int		flag_index;
 

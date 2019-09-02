@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_objects.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/02 18:47:09 by jebae             #+#    #+#             */
+/*   Updated: 2019/09/02 18:47:31 by jebae            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "rt_player.h"
 
 static size_t		get_object_size(t_objects *object)
@@ -26,7 +38,8 @@ static int			set_objects_buf(
 	i = 0;
 	while (i < num_objects)
 	{
-		settings->objects_buf_size += get_object_size(&(objects[i])) + sizeof(int);
+		settings->objects_buf_size +=
+			get_object_size(&(objects[i])) + sizeof(int);
 		i++;
 	}
 	settings->objects_buf = (char *)ft_memalloc(settings->objects_buf_size);

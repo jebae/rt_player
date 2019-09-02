@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/01 17:06:55 by jebae             #+#    #+#             */
-/*   Updated: 2019/08/19 16:11:09 by jebae            ###   ########.fr       */
+/*   Updated: 2019/09/02 18:53:30 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,15 @@ t_vec4						hit_point(t_ray *ray, float t);
 /*
 ** light
 */
-size_t						new_distant_light(t_lights *light, char *lights_buf);
+size_t						new_distant_light(
+	t_lights *light,
+	char *lights_buf
+);
 
-size_t						new_spherical_light(t_lights *light, char *lights_buf);
+size_t						new_spherical_light(
+	t_lights *light,
+	char *lights_buf
+);
 
 /*
 ** object

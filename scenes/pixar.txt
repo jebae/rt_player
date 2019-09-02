@@ -14,7 +14,7 @@ scene{
 			c = 1.0f, 10.0f, 4.0f, 1.0f;
 			}
 		sphere{
-			specular_alpha = 1;
+			specular_alpha = 10;
 			reflectivity = 0.1f;
 			transparency = 0.1f;
 			ior = 1.5f;
@@ -61,6 +61,59 @@ scene{
 			h = 2.5f;
 			c = 1.7f, 10.2f, 6.0f, 1.0f;
 			v = -1.0f, -0.0f, -3.0f, 1.0f;
+			}
+		cylinder{
+			specular_alpha = 50;
+			reflectivity = 0.0f;
+			transparency = 0.0f;
+			ior = 1.5f;
+			color = 1.0f, 1.0f, 0.9f, 1;
+			r = 0.2f;
+			h = 7.0f;
+			c = 1.7f, 10.3f, 5.9f, 1.0f;
+			v = 1.0f, 0.5f, -0.3f, 1.0f;
+			}
+		cylinder{
+			specular_alpha = 50;
+			reflectivity = 0.0f;
+			transparency = 0.0f;
+			ior = 1.5f;
+			color = 1.0f, 1.0f, 0.9f, 1;
+			r = 0.2f;
+			h = 5.0f;
+			c = 1.7f, 10.3f, 5.9f, 1.0f;
+			v = 1.0f, 0.5f, -0.8f, 1.0f;
+			}
+		cylinder{
+			specular_alpha = 50;
+			reflectivity = 0.0f;
+			transparency = 0.0f;
+			ior = 1.5f;
+			color = 1.0f, 1.0f, 0.9f, 1;
+			r = 0.2f;
+			h = 6.0f;
+			c = 8.2f, 13.5f, 3.9f, 1.0f;
+			v = -1.1f, 0.5f, -2.0f, 1.0f;
+			}
+		cylinder{
+			specular_alpha = 50;
+			reflectivity = 0.0f;
+			transparency = 0.0f;
+			ior = 1.5f;
+			color = 1.0f, 1.0f, 0.9f, 1;
+			r = 0.2f;
+			h = 5.0f;
+			c = 5.3f, 12.11f, 2.9f, 1.0f;
+			v = -0.1f, 0.5f, -1.0f, 1.0f;
+			}
+		sphere{
+			specular_alpha = 1;
+			reflectivity = 0.05f;
+			transparency = 0.0f;
+			ior = 1.5f;
+			color = 0.4f, 0.8f, 0.7f, 1;
+			r = 2.0f;
+			c = 5.4f, 14.2f, -1.6f, 1.0f;
 			}
 		}
 	lights{
