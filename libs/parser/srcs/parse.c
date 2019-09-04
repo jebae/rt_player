@@ -6,7 +6,7 @@
 /*   By: almoraru <almoraru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 19:10:13 by almoraru          #+#    #+#             */
-/*   Updated: 2019/08/31 14:42:30 by almoraru         ###   ########.fr       */
+/*   Updated: 2019/09/04 22:53:29 by almoraru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ void	parse_through_file(t_utils *u, char *str)
 void	parse(t_utils *u, char *av)
 {
 	t_str	*s;
-	t_num	*nb;
 	char	*str;
 	int		fd;
 	int		size;
@@ -67,19 +66,11 @@ void	parse(t_utils *u, char *av)
 	if (init_parse(u) == ERROR)
 		ft_error_parse(u, str, "Failed to malloc strings needed!");
 	s = &u->s;
-	nb = &u->nb;
 	if ((fd = open(av, O_RDONLY)) < 0)
 		ft_error_parse(u, str, "Failed to open file!\nusage: ./rtv1 [file]");
 	size = read(fd, s->buf, BUFF_SIZE);
-	if (size > BUFF_SIZE)
-		ft_error_parse(u, str, "File is too big!");
+	run_basic_checks(u, str, size);
 	(void)close(fd);
-	if ((pre_check(s->buf)) == ERROR)
-		ft_error_parse(u, str, "Are you even trying?");
-	if ((check_basics(u)) == ERROR)
-		ft_error_parse(u, str, "Basic checks failed!");
-	if (nb->bracket_o != nb->bracket_c)
-		ft_error_parse(u, str, "Uneven number of open and closed brackets!");
 	parse_through_file(u, str);
-	free(str);
+	free_strings(u, str);
 }
