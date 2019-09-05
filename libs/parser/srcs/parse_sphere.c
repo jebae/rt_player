@@ -6,7 +6,7 @@
 /*   By: almoraru <almoraru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 19:50:07 by almoraru          #+#    #+#             */
-/*   Updated: 2019/08/31 17:28:27 by almoraru         ###   ########.fr       */
+/*   Updated: 2019/09/05 22:06:03 by almoraru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	check_color_sphere(t_utils *u, t_objects *ob, char *str, int i)
 		if (check_for_number(s->str))
 			handle_4vec_number(u, &ob[i].color, s->str);
 		check_for_duplicates(u, str, nb->color);
+		check_color_number(u, &ob[i].color, str);
 	}
 }
 
@@ -41,6 +42,7 @@ void	check_important_sphere(t_utils *u, t_objects *ob, char *str, int i)
 		if (check_for_number(s->str))
 			handle_float_number(u, s->str, &ob[i].r);
 		check_for_duplicates(u, str, nb->r);
+		check_float_number(u, str, &ob[i].r);
 	}
 	if (ft_strcmp(s->word, "c") == 0)
 	{
@@ -76,5 +78,6 @@ void	parse_sphere(t_utils *u, char *str)
 		if (*s->buf == '\n')
 			s->buf++;
 	}
+	check_and_change_attribute(u, &ob[i].att);
 	check_number_of_all_sphere(u, str);
 }

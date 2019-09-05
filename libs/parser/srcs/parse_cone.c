@@ -6,7 +6,7 @@
 /*   By: almoraru <almoraru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/18 17:01:34 by almoraru          #+#    #+#             */
-/*   Updated: 2019/08/31 15:23:03 by almoraru         ###   ########.fr       */
+/*   Updated: 2019/09/05 22:07:07 by almoraru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	check_color_cone(t_utils *u, t_objects *ob, char *str, int i)
 		if (check_for_number(s->str))
 			handle_4vec_number(u, &ob[i].color, s->str);
 		check_for_duplicates(u, str, nb->color);
+		check_color_number(u, &ob[i].color, str);
 	}
 }
 
@@ -41,6 +42,7 @@ void	check_important_cone2(t_utils *u, t_objects *ob, char *str, int i)
 		if (check_for_number(s->str))
 			handle_float_number(u, s->str, &ob[i].h);
 		check_for_duplicates(u, str, nb->h);
+		check_float_number(u, str, &ob[i].h);
 	}
 	if (ft_strcmp(s->word, "theta") == 0)
 	{
@@ -48,6 +50,7 @@ void	check_important_cone2(t_utils *u, t_objects *ob, char *str, int i)
 		if (check_for_number(s->str))
 			handle_theta_number(u, s->str, &ob[i].theta);
 		check_for_duplicates(u, str, nb->theta);
+		check_float_number(u, str, &ob[i].theta);
 	}
 }
 
@@ -100,5 +103,6 @@ void	parse_cone(t_utils *u, char *str)
 		if (*s->buf == '\n')
 			s->buf++;
 	}
+	check_and_change_attribute(u, &ob[i].att);
 	check_number_of_all_cone(u, str);
 }

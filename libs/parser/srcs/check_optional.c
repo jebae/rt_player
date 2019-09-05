@@ -6,7 +6,7 @@
 /*   By: almoraru <almoraru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 21:09:29 by almoraru          #+#    #+#             */
-/*   Updated: 2019/09/04 23:02:46 by almoraru         ###   ########.fr       */
+/*   Updated: 2019/09/05 22:14:06 by almoraru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	check_optional_light_properties(t_utils *u
 		if (check_for_number(s->str))
 			handle_4vec_number(u, &att->intensity, s->str);
 		check_for_duplicates_optional(u, str, nb->intensity);
+		check_intensity_number(u, &att->intensity, str);
 	}
 }
 
@@ -41,14 +42,16 @@ void	check_optional_properties2(t_utils *u, t_object_commons *att, char *str)
 		nb->transparency++;
 		if (check_for_number(s->str))
 			handle_float_number(u, s->str, &att->transparency);
-		check_for_duplicates_object_optional(u, att, str, nb->transparency);
+		check_for_duplicates_optional(u, str, nb->transparency);
+		check_float_number(u, str, &att->transparency);
 	}
 	if (ft_strcmp(s->word, "ior") == 0)
 	{
 		nb->ior++;
 		if (check_for_number(s->str))
 			handle_float_number(u, s->str, &att->ior);
-		check_for_duplicates_object_optional(u, att, str, nb->ior);
+		check_for_duplicates_optional(u, str, nb->ior);
+		check_ior_number(u, str, &att->ior);
 	}
 }
 
@@ -64,14 +67,15 @@ void	check_optional_properties(t_utils *u, t_object_commons *att, char *str)
 		nb->specular_alpha++;
 		if (check_for_number(s->str))
 			handle_int_number(u, s->str, &att->specular_alpha);
-		check_for_duplicates_object_optional(u, att, str, nb->specular_alpha);
+		check_for_duplicates_optional(u, str, nb->specular_alpha);
 	}
 	if (ft_strcmp(s->word, "reflectivity") == 0)
 	{
 		nb->reflectivity++;
 		if (check_for_number(s->str))
 			handle_float_number(u, s->str, &att->reflectivity);
-		check_for_duplicates_object_optional(u, att, str, nb->reflectivity);
+		check_for_duplicates_optional(u, str, nb->reflectivity);
+		check_float_number(u, str, &att->reflectivity);
 	}
 	check_optional_properties2(u, att, str);
 }

@@ -6,7 +6,7 @@
 /*   By: almoraru <almoraru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/18 17:44:41 by almoraru          #+#    #+#             */
-/*   Updated: 2019/08/31 15:17:22 by almoraru         ###   ########.fr       */
+/*   Updated: 2019/09/05 22:16:26 by almoraru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		ft_str_new_line_len(char *str)
 char	*ft_getnumbers(char *number, char *str)
 {
 	if (number != NULL)
-		ft_bzero(number, 1024);
+		ft_bzero(number, ft_strlen(number));
 	while (*str != '\0' && *str != '\n')
 	{
 		if (ft_is_proper(*str) || *str == '=')
@@ -40,7 +40,8 @@ char	*ft_getnumbers(char *number, char *str)
 
 char	*ft_cpy_word(char *dest, char *src)
 {
-	ft_bzero(dest, ft_strlen(dest));
+	if (dest != NULL)
+		ft_bzero(dest, ft_strlen(dest));
 	while (*src != '\0' && ft_is_proper(*src))
 		*dest++ = *src++;
 	*dest = '\0';
@@ -50,7 +51,7 @@ char	*ft_cpy_word(char *dest, char *src)
 char	*ft_cpynb(char *dest, char *src)
 {
 	if (dest != NULL)
-		ft_bzero(dest, 1024);
+		ft_bzero(dest, ft_strlen(dest));
 	while (ft_isalpha(*src))
 		src++;
 	while (*src != '\0' && *src != ',')
@@ -61,7 +62,8 @@ char	*ft_cpynb(char *dest, char *src)
 
 char	*ft_strnlinecpy(char *dest, char *src)
 {
-	ft_bzero(dest, ft_strlen(dest));
+	if (dest != NULL)
+		ft_bzero(dest, ft_strlen(dest));
 	while (*src != '\0' && *src != '\n'
 			&& (ft_isalnum(*src) || ft_iswhitespace(*src)
 			|| *src == '.' || *src == ','

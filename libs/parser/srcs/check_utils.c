@@ -6,7 +6,7 @@
 /*   By: almoraru <almoraru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 15:17:49 by almoraru          #+#    #+#             */
-/*   Updated: 2019/09/04 23:19:44 by almoraru         ###   ########.fr       */
+/*   Updated: 2019/09/05 22:16:07 by almoraru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,11 @@ void	check_for_duplicates(t_utils *u, char *str, int nb)
 		ft_error_parse(u, str, "No duplicates allowed!");
 }
 
-void	check_for_duplicates_object_optional(t_utils *u
-								, t_object_commons *att, char *str, int nb)
+void	check_for_duplicates_optional(t_utils *u
+											, char *str, int nb)
 {
 	if (nb > 1)
 		ft_error_parse(u, str, "No duplicates allowed!");
-	else if (nb == 0)
-	{
-		ft_putendl("Warning! no optional property found,"\
-		"going with defaults...");
-		check_and_change_attribute(u, att);
-	}
 }
 
 void	check_number_of_all_cam(t_utils *u, char *str)
@@ -58,5 +52,5 @@ void	check_number_of_all_cam(t_utils *u, char *str)
 	nb = &u->nb;
 	if (nb->location != 1 || nb->focus != 1)
 		ft_error_parse(u, str, "Wrong camera parameters!");
-	ft_bzero(nb, sizeof(nb) * 10);
+	ft_bzero(nb, 88);
 }

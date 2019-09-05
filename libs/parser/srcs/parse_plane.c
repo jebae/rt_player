@@ -6,7 +6,7 @@
 /*   By: almoraru <almoraru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 21:40:45 by almoraru          #+#    #+#             */
-/*   Updated: 2019/08/31 15:07:40 by almoraru         ###   ########.fr       */
+/*   Updated: 2019/09/05 22:06:23 by almoraru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	check_color_plane(t_utils *u, t_objects *ob, char *str, int i)
 		if (check_for_number(s->str))
 			handle_4vec_number(u, &ob[i].color, s->str);
 		check_for_duplicates(u, str, nb->color);
+		check_color_number(u, &ob[i].color, str);
 	}
 }
 
@@ -76,5 +77,6 @@ void	parse_plane(t_utils *u, char *str)
 		if (*s->buf == '\n')
 			s->buf++;
 	}
+	check_and_change_attribute(u, &ob[i].att);
 	check_number_of_all_plane(u, str);
 }

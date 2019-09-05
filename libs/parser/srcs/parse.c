@@ -6,7 +6,7 @@
 /*   By: almoraru <almoraru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 19:10:13 by almoraru          #+#    #+#             */
-/*   Updated: 2019/09/04 22:53:29 by almoraru         ###   ########.fr       */
+/*   Updated: 2019/09/05 21:34:37 by almoraru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void	parse(t_utils *u, char *av)
 	size = read(fd, s->buf, BUFF_SIZE);
 	run_basic_checks(u, str, size);
 	(void)close(fd);
+	free(s->number);
 	parse_through_file(u, str);
-	free_strings(u, str);
+	free(str);
 }

@@ -6,7 +6,7 @@
 /*   By: almoraru <almoraru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 19:12:02 by almoraru          #+#    #+#             */
-/*   Updated: 2019/09/04 23:17:38 by almoraru         ###   ########.fr       */
+/*   Updated: 2019/09/05 22:10:39 by almoraru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,8 +144,6 @@ void			check_optional_light_properties(t_utils *u
 										, t_light_commons *att, char *str);
 void			check_for_duplicates(t_utils *u, char *str, int nb);
 void			check_for_duplicates_optional(t_utils *u, char *str, int nb);
-void			check_for_duplicates_object_optional(t_utils *u
-								, t_object_commons *att, char *str, int nb);
 void			check_and_change_attribute(t_utils *u
 										, t_object_commons *att);
 
@@ -178,6 +176,10 @@ void			handle_4vec_number(t_utils *u, t_vec4 *vec, char *str);
 void			handle_float_number(t_utils *u, char *str, float *f);
 void			handle_theta_number(t_utils *u, char *str, float *f);
 void			handle_int_number(t_utils *u, char *str, int *i);
+void			check_color_number(t_utils *u, t_vec4 *vec, char *str);
+void			check_ior_number(t_utils *u, char *str, float *f);
+void			check_float_number(t_utils *u, char *str, float *f);
+void			check_intensity_number(t_utils *u, t_vec4 *vec, char *str);
 
 /*
 ** UTIL FUNCTIONS

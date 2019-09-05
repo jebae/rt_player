@@ -6,7 +6,7 @@
 #    By: almoraru <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/03 10:41:01 by almoraru          #+#    #+#              #
-#    Updated: 2019/09/04 23:16:46 by almoraru         ###   ########.fr        #
+#    Updated: 2019/09/05 21:37:03 by almoraru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ $(SRC_DIR)/handle_strings.c $(SRC_DIR)/check_objects.c $(SRC_DIR)/init_parse.c  
 $(SRC_DIR)/errors.c $(SRC_DIR)/parse_lights.c $(SRC_DIR)/check_lights.c			 \
 $(SRC_DIR)/check_utils.c $(SRC_DIR)/check_utils_objects.c						 \
 $(SRC_DIR)/check_utils_lights.c $(SRC_DIR)/parse_utils2.c						 \
-$(SRC_DIR)/check_optional_values.c
+$(SRC_DIR)/check_optional_values.c $(SRC_DIR)/check_numbers.c
 
 NAME = libparse.a
 
