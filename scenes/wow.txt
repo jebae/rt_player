@@ -6,7 +6,7 @@ scene{
 	objects{
 		sphere{
 			color = 0.9f, 0.2f, 0.1f, 1;
-			r = 5.5f;
+			r = 0.5f;
 			c = 0.0f, 7.0f, 1.0f, 1.0f;
 			}
 	}
