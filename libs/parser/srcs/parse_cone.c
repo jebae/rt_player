@@ -6,7 +6,7 @@
 /*   By: almoraru <almoraru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/18 17:01:34 by almoraru          #+#    #+#             */
-/*   Updated: 2019/09/05 22:07:07 by almoraru         ###   ########.fr       */
+/*   Updated: 2019/09/07 16:04:38 by almoraru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	check_important_cone2(t_utils *u, t_objects *ob, char *str, int i)
 		if (check_for_number(s->str))
 			handle_float_number(u, s->str, &ob[i].h);
 		check_for_duplicates(u, str, nb->h);
-		check_float_number(u, str, &ob[i].h);
+		check_positive_float_number(u, str, &ob[i].h);
 	}
 	if (ft_strcmp(s->word, "theta") == 0)
 	{
@@ -50,7 +50,7 @@ void	check_important_cone2(t_utils *u, t_objects *ob, char *str, int i)
 		if (check_for_number(s->str))
 			handle_theta_number(u, s->str, &ob[i].theta);
 		check_for_duplicates(u, str, nb->theta);
-		check_float_number(u, str, &ob[i].theta);
+		check_positive_float_number(u, str, &ob[i].theta);
 	}
 }
 

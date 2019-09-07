@@ -6,7 +6,7 @@
 /*   By: almoraru <almoraru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/05 21:36:43 by almoraru          #+#    #+#             */
-/*   Updated: 2019/09/05 22:15:25 by almoraru         ###   ########.fr       */
+/*   Updated: 2019/09/07 16:19:42 by almoraru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,12 @@ void	check_ior_number(t_utils *u, char *str, float *f)
 
 void	check_float_number(t_utils *u, char *str, float *f)
 {
-	if (*f <= 0)
+	if (*f < 0.0f || *f > 1.0f)
+		ft_error_parse(u, str, "This option has to be between 0.0 and 1.0!");
+}
+
+void	check_positive_float_number(t_utils *u, char *str, float *f)
+{
+	if (*f <= 0.0f)
 		ft_error_parse(u, str, "This option has to be more than zero!");
 }

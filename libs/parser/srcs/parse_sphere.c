@@ -6,7 +6,7 @@
 /*   By: almoraru <almoraru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 19:50:07 by almoraru          #+#    #+#             */
-/*   Updated: 2019/09/05 22:06:03 by almoraru         ###   ########.fr       */
+/*   Updated: 2019/09/07 16:03:31 by almoraru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	check_important_sphere(t_utils *u, t_objects *ob, char *str, int i)
 		if (check_for_number(s->str))
 			handle_float_number(u, s->str, &ob[i].r);
 		check_for_duplicates(u, str, nb->r);
-		check_float_number(u, str, &ob[i].r);
+		check_positive_float_number(u, str, &ob[i].r);
 	}
 	if (ft_strcmp(s->word, "c") == 0)
 	{
