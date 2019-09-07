@@ -1,19 +1,44 @@
 scene{
 	camera{
-	location = 0.0f, 0.0f, 2.5, 1.0;
-	focus = 0.0, 15.0, 2.5, 1.0;
+	location = 0.0f, 0.0f, 1.5, 1.0;
+	focus = 0.0, 5.0, 2.5, 1.0;
 	}
 	objects{
 		sphere{
 			transparency = 0.2f;
 			ior = 2.5f;
 			color = 0.9f, 0.2f, 0.1f, 1;
-			r = 5.5f;
+			r = 2.5f;
 			c = 0.0f, 7.0f, 1.0f, 1.0f;
+			}
+		cone{
+			specular_alpha = 50;
+			reflectivity = 0.2f;
+			transparency = 0.0f;
+			ior = 1.5f;
+			color = 0.6f, 0.6f, 0.8f, 1;
+			theta = 5.0f;
+			h = 2.5f;
+			c = 1.5f, 10.2f, 6.0f, 1.0f;
+			v = -1.0f, 0.0f, -4.0f, 1.0f;
+			}
+		plane{
+			reflectivity = 0.0f;
+			transparency = 0.0f;
+			specular_alpha = 50;
+			ior = 1.5f;
+			color = 1.0f, 1.0f, 1.0f, 1;
+			n = 0.0f, 0.0f, 1.0f, 1;
+			p = 0.0f, 0.0f, -1.0f, 1;
 			}
 	}
 	lights{
+		distant{
+		intensity = 0.5f, 0.5f, 0.5f, 1;
+		d = 0.0f, 1.0f, -2.0f, 1;
+		}
 		spherical{
+			intensity = 100, 100, 100, 1;
 			origin = 5.0f, 1.0f, 3.0f, 1;
 			}
 		}
