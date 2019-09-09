@@ -16,7 +16,7 @@ int		set_rt_settings(
 	t_utils *parse_res
 )
 {
-	static t_vec4				i_a = (t_vec4){{0.05f, 0.05f, 0.05f, 1.0f}};
+	static t_vec4				i_a = (t_vec4){{0.07f, 0.07f, 0.07f, 1.0f}};
 	t_init_rt_settings_args		args;
 
 	args.parallel_mode = dispatcher->parallel_mode;
