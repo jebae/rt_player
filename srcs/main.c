@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 18:48:11 by jebae             #+#    #+#             */
-/*   Updated: 2019/09/02 18:48:27 by jebae            ###   ########.fr       */
+/*   Updated: 2019/09/09 17:02:17 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void		play(char *scene_src, int parallel_mode)
 {
 	t_dispatcher			dispatcher;
 	t_clkit					clkit;
-	t_global_settings		settings;
+	t_rt_settings			settings;
 	t_utils					parse_res;
 
 	ft_bzero(&parse_res, sizeof(parse_res));
@@ -26,11 +26,16 @@ static void		play(char *scene_src, int parallel_mode)
 	dispatcher.clkit = &clkit;
 	dispatcher.object_index = 0;
 	set_mlx(&dispatcher, WIDTH, HEIGHT);
-	settings = init_rt_global_settings(&dispatcher, WIDTH, HEIGHT);
-	if (map_scene(&parse_res, &settings) == RTP_FAIL)
-		ft_error("Mapping scene failed!");
-	set_rt_global_settings_ray_grid_props(&settings, &(settings.cam));
-	init_clkit(&clkit, &settings);
+	if (set_rt_settings(&settings, &dispatcher, &parse_res) == RTP_FAIL)
+	{
+		clear_all(&dispatcher);
+		exit(1);
+	}
+	if (init_clkit(&clkit, &settings) == RT_FAIL)
+	{
+		clear_all(&dispatcher);
+		exit(1);
+	}
 	render_by_mlx(&dispatcher);
 	mlx_loop(dispatcher.p_mlx);
 }

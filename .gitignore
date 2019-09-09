@@ -10,3 +10,4 @@ rtv1
 objs
 *.o
 *.a
+__tests__

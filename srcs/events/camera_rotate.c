@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/01 17:13:30 by jebae             #+#    #+#             */
-/*   Updated: 2019/08/01 17:16:13 by jebae            ###   ########.fr       */
+/*   Updated: 2019/09/09 17:06:34 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 static void		event_camera_rotate(t_dispatcher *dispatcher)
 {
-	set_rt_global_settings_ray_grid_props(
-		dispatcher->settings,
-		&(dispatcher->settings->cam));
+	update_ray_grid_props(dispatcher->settings);
 	render_by_mlx(dispatcher);
 }
 

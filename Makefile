@@ -6,7 +6,7 @@
 #    By: jebae <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/01 17:14:05 by jebae             #+#    #+#              #
-#    Updated: 2019/09/02 18:55:01 by jebae            ###   ########.fr        #
+#    Updated: 2019/09/09 18:33:14 by jebae            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,23 +85,29 @@ SRC_EVENTS = exit.c\
 	camera_rotate.c\
 	select_object.c\
 
-SRC_SETTING = set_mlx.c\
-	set_rt_global_settings.c\
+SRC_SETTING = set_rt_settings.c\
 
 SRC_MAP_SCENE = map_camera.c\
 	map_objects.c\
 	map_lights.c\
 	map_scene.c\
 
-SRC_UTILS = render_by_mlx.c\
+SRC_MLX = render_by_mlx.c\
 	mlx_get_img_buffer.c\
+	set_mlx.c\
+
+SRC_CLEAR = clear.c\
+
+SRC_HANDLE_ERROR = handle_error.c\
 
 # objs
 OBJS = $(addprefix $(OBJDIR)/,$(SRC_MAIN:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/,$(SRC_EVENTS:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/,$(SRC_SETTING:.c=.o))
-OBJS += $(addprefix $(OBJDIR)/,$(SRC_UTILS:.c=.o))
+OBJS += $(addprefix $(OBJDIR)/,$(SRC_MLX:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/,$(SRC_MAP_SCENE:.c=.o))
+OBJS += $(addprefix $(OBJDIR)/,$(SRC_CLEAR:.c=.o))
+OBJS += $(addprefix $(OBJDIR)/,$(SRC_HANDLE_ERROR:.c=.o))
 
 # compile objs
 HEADERS = $(INCDIR)/rt_player.h\
@@ -122,9 +128,13 @@ $(OBJDIR)/%.o : $(SRCDIR)/events/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 $(OBJDIR)/%.o : $(SRCDIR)/setting/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
-$(OBJDIR)/%.o : $(SRCDIR)/utils/%.c $(HEADERS)
+$(OBJDIR)/%.o : $(SRCDIR)/mlx/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 $(OBJDIR)/%.o : $(SRCDIR)/map_scene/%.c $(HEADERS)
+	@$(call compile_obj,$<,$@)
+$(OBJDIR)/%.o : $(SRCDIR)/clear/%.c $(HEADERS)
+	@$(call compile_obj,$<,$@)
+$(OBJDIR)/%.o : $(SRCDIR)/handle_error/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 
 # build

@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/01 17:13:34 by jebae             #+#    #+#             */
-/*   Updated: 2019/08/01 17:16:38 by jebae            ###   ########.fr       */
+/*   Updated: 2019/09/09 17:07:52 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ static void		event_camera_translate(t_vec4 *v, t_dispatcher *dispatcher)
 	*v = mat_mul_vec(&mat, v);
 	mat = translate_mat(v->arr[0], v->arr[1], v->arr[2]);
 	camera_translate(&(dispatcher->settings->cam), &mat);
-	set_rt_global_settings_ray_grid_props(
-		dispatcher->settings,
-		&(dispatcher->settings->cam));
+	update_ray_grid_props(dispatcher->settings);
 	render_by_mlx(dispatcher);
 }
 

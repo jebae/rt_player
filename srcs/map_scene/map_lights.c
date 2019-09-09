@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 18:48:36 by jebae             #+#    #+#             */
-/*   Updated: 2019/09/02 18:48:37 by jebae            ###   ########.fr       */
+/*   Updated: 2019/09/09 17:57:26 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static size_t		get_light_size(t_lights *light)
 static int			set_lights_buf(
 	t_lights *lights,
 	int num_lights,
-	t_global_settings *settings
+	t_rt_settings *settings
 )
 {
 	int		i;
@@ -39,7 +39,7 @@ static int			set_lights_buf(
 	}
 	settings->lights_buf = (char *)ft_memalloc(settings->lights_buf_size);
 	if (settings->lights_buf == NULL)
-		return (RTP_FAIL);
+		return (rtp_print_memalloc_err("settings lights buffer"));
 	return (RTP_SUCCESS);
 }
 
@@ -55,7 +55,7 @@ static size_t		write_light_by_type(t_lights *light, char *lights_buf)
 int					map_lights(
 	t_lights *lights,
 	int num_lights,
-	t_global_settings *settings
+	t_rt_settings *settings
 )
 {
 	int		i;

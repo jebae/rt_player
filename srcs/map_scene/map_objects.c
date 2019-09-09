@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 18:47:09 by jebae             #+#    #+#             */
-/*   Updated: 2019/09/02 18:47:31 by jebae            ###   ########.fr       */
+/*   Updated: 2019/09/09 17:57:39 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static size_t		get_object_size(t_objects *object)
 static int			set_objects_buf(
 	t_objects *objects,
 	int num_objects,
-	t_global_settings *settings
+	t_rt_settings *settings
 )
 {
 	int		i;
@@ -44,7 +44,7 @@ static int			set_objects_buf(
 	}
 	settings->objects_buf = (char *)ft_memalloc(settings->objects_buf_size);
 	if (settings->objects_buf == NULL)
-		return (RTP_FAIL);
+		return (rtp_print_memalloc_err("settings objects buffer"));
 	return (RTP_SUCCESS);
 }
 
@@ -64,7 +64,7 @@ static size_t		write_object_by_type(t_objects *object, char *objects_buf)
 int					map_objects(
 	t_objects *objects,
 	int num_objects,
-	t_global_settings *settings
+	t_rt_settings *settings
 )
 {
 	int		i;

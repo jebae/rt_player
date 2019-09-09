@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/01 17:18:49 by jebae             #+#    #+#             */
-/*   Updated: 2019/09/02 18:49:33 by jebae            ###   ########.fr       */
+/*   Updated: 2019/09/09 18:34:01 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ typedef struct			s_dispatcher
 	void				*p_mlx;
 	void				*p_win;
 	void				*p_img;
-	t_global_settings	*settings;
+	t_rt_settings	*settings;
 	t_clkit				*clkit;
 }						t_dispatcher;
 
@@ -105,56 +105,62 @@ void					key_right_bracket(t_dispatcher *dispatcher);
 /*
 ** setting
 */
-void					set_mlx(
+int						set_rt_settings(
+	t_rt_settings *settings,
 	t_dispatcher *dispatcher,
-	int width,
-	int height
+	t_utils *parse_res
 );
 
-t_global_settings		init_rt_global_settings(
-	t_dispatcher *dispatcher,
-	int width,
-	int height
-);
-
-t_camera				init_camera(t_vec4 pos, t_vec4 focus);
-
-void					set_rt_global_settings_ray_grid_props(
-	t_global_settings *settings,
-	t_camera *cam
-);
+void					update_ray_grid_props(t_rt_settings *settings);
 
 /*
 ** map_scene
 */
 int						map_scene(
 	t_utils *parse_res,
-	t_global_settings *settings
+	t_rt_settings *settings
 );
 
 void					map_camera(
 	t_cam *cam_builder,
-	t_global_settings *settings
+	t_rt_settings *settings
 );
 
 int						map_objects(
 	t_objects *objects,
 	int num_objects,
-	t_global_settings *settings
+	t_rt_settings *settings
 );
 
 int						map_lights(
 	t_lights *lights,
 	int num_lights,
-	t_global_settings *settings
+	t_rt_settings *settings
 );
 
 /*
-** utils
+** mlx
 */
 void					render_by_mlx(t_dispatcher *dispatcher);
 
 char					*get_img_buffer(void *p_img, int width);
+
+void					set_mlx(
+	t_dispatcher *dispatcher,
+	int width,
+	int height
+);
+
+/*
+** clear
+*/
+void					clear_all(t_dispatcher *dispatcher);
+
+/*
+** handle error
+*/
+int						rtp_print_err(const char *msg);
+int						rtp_print_memalloc_err(const char *target);
 
 /*
 ** test

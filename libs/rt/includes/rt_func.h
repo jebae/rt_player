@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/01 17:06:55 by jebae             #+#    #+#             */
-/*   Updated: 2019/09/02 18:53:30 by jebae            ###   ########.fr       */
+/*   Updated: 2019/09/09 18:21:19 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,6 @@
 # include "rt_args.h"
 # include "parse.h"
 
-typedef enum				e_rgb_shades_idx
-{
-	AMBIENT,
-	DIFFUSE,
-	SPECULAR,
-	REFLECT,
-	REFRACT,
-}							t_rgb_shades_idx;
-
 /*
 ** ray
 */
@@ -36,13 +27,13 @@ t_ray_grid_properties		get_ray_grid_properties(
 	float height,
 	float aov
 );
+
 void						set_ray(
 	t_ray_grid_properties *props,
 	t_ray *ray,
 	int scalar_x,
 	int scalar_y
 );
-t_vec4						hit_point(t_ray *ray, float t);
 
 /*
 ** light
@@ -71,21 +62,46 @@ void						write_mem_buf(
 	int type
 );
 
-size_t						new_sphere(t_objects *object, char *objects_buf);
+size_t						new_sphere(
+	t_objects *object,
+	char *objects_buf
+);
 
-size_t						new_cone(t_objects *object, char *objects_buf);
+size_t						new_cone(
+	t_objects *object,
+	char *objects_buf
+);
 
-size_t						new_plane(t_objects *object, char *objects_buf);
+size_t						new_plane(
+	t_objects *object,
+	char *objects_buf
+);
 
-size_t						new_cylinder(t_objects *object, char *objects_buf);
+size_t						new_triangle(
+	t_objects *object,
+	char *objects_buf
+);
 
-size_t						new_triangle(t_objects *object, char *objects_buf);
+size_t						new_cylinder(
+	t_objects *object,
+	char *objects_buf
+);
 
 /*
-** utils
+** rt_settings
 */
-void						exit_with_memalloc_err(const char *msg);
+void						init_rt_settings(
+	t_rt_settings *settings,
+	t_init_rt_settings_args *args
+);
 
-void						clear_global_settings(t_global_settings *settings);
+void						clear_rt_settings(t_rt_settings *settings);
+
+/*
+** handle error
+*/
+int		rt_print_err(const char *msg);
+
+int		rt_print_memalloc_err(const char *target);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/01 17:13:36 by jebae             #+#    #+#             */
-/*   Updated: 2019/08/01 17:13:37 by jebae            ###   ########.fr       */
+/*   Updated: 2019/09/09 17:00:33 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 void		key_esc(t_dispatcher *dispatcher)
 {
-	release(dispatcher->clkit);
-	clear_global_settings(dispatcher->settings);
-	mlx_destroy_image(dispatcher->p_mlx, dispatcher->p_img);
-	mlx_destroy_window(dispatcher->p_mlx, dispatcher->p_win);
+	clear_all(dispatcher);
 	exit(0);
 }
