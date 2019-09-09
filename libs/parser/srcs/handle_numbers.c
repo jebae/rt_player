@@ -6,7 +6,7 @@
 /*   By: almoraru <almoraru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/18 17:05:26 by almoraru          #+#    #+#             */
-/*   Updated: 2019/09/05 22:12:39 by almoraru         ###   ########.fr       */
+/*   Updated: 2019/09/09 16:07:51 by almoraru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,12 @@ void	handle_4vec_number(t_utils *u, t_vec4 *vec, char *str)
 	while (*s->number != '\0')
 	{
 		ft_cpynb(s->sub_nb, s->number);
-		if (check_sub(s->sub_nb))
+		if (check_sub(s->sub_nb) && i < 4)
 		{
 			vec->arr[i] = ft_atof(s->sub_nb);
 			i++;
 		}
-		else
+		else if (i < 4)
 		{
 			vec->arr[i] = ft_atoi(s->sub_nb);
 			i++;

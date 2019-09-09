@@ -6,7 +6,7 @@
 /*   By: almoraru <almoraru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/18 17:44:41 by almoraru          #+#    #+#             */
-/*   Updated: 2019/09/05 22:16:26 by almoraru         ###   ########.fr       */
+/*   Updated: 2019/09/09 17:00:32 by almoraru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_getnumbers(char *number, char *str)
 		ft_bzero(number, ft_strlen(number));
 	while (*str != '\0' && *str != '\n')
 	{
-		if (ft_is_proper(*str) || *str == '=')
+		if (ft_is_proper(*str) || is_skippable_char(*str))
 			str++;
 		while (ft_isdigit(*str) || *str == ',' || *str == '.'
 				|| *str == 'f' || *str == '-')
@@ -66,8 +66,7 @@ char	*ft_strnlinecpy(char *dest, char *src)
 		ft_bzero(dest, ft_strlen(dest));
 	while (*src != '\0' && *src != '\n'
 			&& (ft_isalnum(*src) || ft_iswhitespace(*src)
-			|| *src == '.' || *src == ','
-			|| *src == '_'))
+				|| is_skippable_char(*src)))
 	{
 		while (ft_iswhitespace(*src))
 			src++;
