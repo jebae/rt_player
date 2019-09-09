@@ -6,7 +6,7 @@
 /*   By: almoraru <almoraru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/18 19:06:49 by almoraru          #+#    #+#             */
-/*   Updated: 2019/08/31 17:23:02 by almoraru         ###   ########.fr       */
+/*   Updated: 2019/09/07 18:34:11 by almoraru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,11 @@ void	parse_distant_light(t_utils *u, char *str)
 {
 	t_lights	*light;
 	t_str		*s;
-	t_num		*nb;
 	t_index		*index;
 	int			i;
 
 	light = u->light;
 	s = &u->s;
-	nb = &u->nb;
 	index = &u->i;
 	i = index->light;
 	light[i].type = RT_LIGHT_TYPE_DISTANT;
@@ -55,7 +53,8 @@ void	parse_distant_light(t_utils *u, char *str)
 		if (*s->buf == '\n')
 			s->buf++;
 	}
-	check_number_of_directional_light(u, str);
+	check_and_change_light(u, &light[i].att);
+	check_number_of_distant_light(u, str);
 }
 
 void	check_important_spherical_light(t_utils *u, t_lights *light
@@ -99,5 +98,6 @@ void	parse_spherical_light(t_utils *u, char *str)
 		if (*s->buf == '\n')
 			s->buf++;
 	}
+	check_and_change_light(u, &light[i].att);
 	check_number_of_spherical_light(u, str);
 }

@@ -1,0 +1,87 @@
+scene{
+	camera{
+	location = 0.0f, 0.0f, 1.0, 1.0;
+	focus = 0.0, 1.0, 1.0, 1.0;
+	}
+	objects{
+		sphere{
+			specular_alpha = 1;
+			reflectivity = 0.2f;
+			transparency = 0.8f;
+			ior = 1.5f;
+			color = 0.9f, 0.6f, 0.1f, 1;
+			r = 2.0f;
+			c = -8.0f, 10.0f, 4.0f, 1.0f;
+			}
+		sphere{
+			specular_alpha = 10;
+			reflectivity = 0.1f;
+			transparency = 0.1f;
+			ior = 1.5f;
+			color = 0.9f, 0.2f, 0.1f, 1;
+			r = 1.0f;
+			c = 0.0f, 9.0f, 0.0f, 1.0f;
+			}
+		cylinder{
+			specular_alpha = 50;
+			reflectivity = 0.2f;
+			transparency = 0.0f;
+			ior = 1.5f;
+			color = 1.0f, 0.4f, 0.0f, 1;
+			r = 0.7f;
+			h = 2.0f;
+			c = -3.5f, 7.0f, -0.3f, 1.0f;
+			v = 1.0f, -0.5f, -0.0f, 1.0f;
+			}
+		plane{
+			reflectivity = 0.0f;
+			transparency = 0.0f;
+			specular_alpha = 50;
+			ior = 1.5f;
+			color = 0.2f, 0.6f, 0.2f, 1;
+			n = 0.0f, 0.0f, 1.0f, 1;
+			p = 0.0f, 0.0f, -1.0f, 1;
+			}
+		plane{
+			reflectivity = 0.5f;
+			transparency = 0.0f;
+			specular_alpha = 50;
+			ior = 1.5;
+			color = 0.1f, 0.1f, 0.1f, 1;
+			n = 0.0f, -1.0f, 0.0f, 1;
+			p = 0.0f, 20.0f, 0.0f, 1;
+			}
+		sphere{
+			specular_alpha = 10;
+			reflectivity = 0.05f;
+			transparency = 0.0f;
+			ior = 1.5f;
+			color = 0.4f, 0.8f, 0.7f, 1;
+			r = 2.0f;
+			c = 5.4f, 7.2f, -1.6f, 1.0f;
+			}
+		sphere{
+			specular_alpha = 1;
+			reflectivity = 0.5f;
+			transparency = 0.7f;
+			ior = 2.5f;
+			color = 0.2f, 0.2f, 0.9f, 1;
+			r = 6.0f;
+			c = 8.4f, 15.2f, 8.6f, 1.0f;
+			}
+		}
+	lights{
+		spherical{
+			intensity = 50.0f, 100.0f, 100.0f, 1.0f;
+			origin = 8.4f, 15.2f, 8.6f, 1;
+			}
+		spherical{
+			intensity = 100.0f, 100.0f, 100.0f, 1.0f;
+			origin = -8.0f, 10.0f, 4.0f, 1;
+			}
+		distant{
+			intensity = 0.5f, 0.5f, 0.5f, 1.0f;
+			d = 0.0f, 1.0f, -2.0f, 1;
+			}
+		}
+}

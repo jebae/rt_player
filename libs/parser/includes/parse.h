@@ -6,7 +6,7 @@
 /*   By: almoraru <almoraru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 19:12:02 by almoraru          #+#    #+#             */
-/*   Updated: 2019/09/07 16:06:20 by almoraru         ###   ########.fr       */
+/*   Updated: 2019/09/07 18:13:30 by almoraru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,6 +146,7 @@ void			check_for_duplicates(t_utils *u, char *str, int nb);
 void			check_for_duplicates_optional(t_utils *u, char *str, int nb);
 void			check_and_change_attribute(t_utils *u
 										, t_object_commons *att);
+void			check_and_change_light(t_utils *u, t_light_commons *att);
 
 /*
 ** INIT FUNCTIONS
@@ -199,7 +200,7 @@ void			check_number_of_all_sphere(t_utils *u, char *str);
 void			check_number_of_all_cylinder(t_utils *u, char *str);
 void			check_number_of_all_plane(t_utils *u, char *str);
 void			check_number_of_all_cone(t_utils *u, char *str);
-void			check_number_of_directional_light(t_utils *u, char *str);
+void			check_number_of_distant_light(t_utils *u, char *str);
 void			check_number_of_spherical_light(t_utils *u, char *str);
 void			check_and_increase_object_index(t_utils *u, char *str);
 void			check_and_increase_light_index(t_utils *u, char *str);

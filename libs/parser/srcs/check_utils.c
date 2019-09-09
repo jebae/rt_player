@@ -6,7 +6,7 @@
 /*   By: almoraru <almoraru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 15:17:49 by almoraru          #+#    #+#             */
-/*   Updated: 2019/09/05 22:16:07 by almoraru         ###   ########.fr       */
+/*   Updated: 2019/09/09 17:37:40 by almoraru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	check_and_increase_light_index(t_utils *u, char *str)
 	index = &u->i;
 	index->light++;
 	if (index->light > 4)
-		ft_error_parse(u, str, "Too many light in the file!");
+		ft_error_parse(u, str, "Too many lights in the file!");
 }
 
 void	check_for_duplicates(t_utils *u, char *str, int nb)
