@@ -93,6 +93,7 @@ typedef struct				s_init_rt_settings_args
 	int			width;
 	int			height;
 	int			parallel_mode;
+	int			deep_trace;
 	t_vec4		i_a;
 	int			*img_buf;
 }							t_init_rt_settings_args;

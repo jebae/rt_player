@@ -12,7 +12,7 @@
 
 #include "rt_player.h"
 
-static void		play(char *scene_src, int parallel_mode)
+static void		play(char *scene_src, char options)
 {
 	t_dispatcher			dispatcher;
 	t_clkit					clkit;
@@ -21,7 +21,7 @@ static void		play(char *scene_src, int parallel_mode)
 
 	ft_bzero(&parse_res, sizeof(parse_res));
 	parse(&parse_res, scene_src);
-	dispatcher.parallel_mode = parallel_mode;
+	dispatcher.options = options;
 	dispatcher.settings = &settings;
 	dispatcher.clkit = &clkit;
 	dispatcher.object_index = 0;
@@ -42,30 +42,35 @@ static void		play(char *scene_src, int parallel_mode)
 
 static int		print_usage(void)
 {
-	ft_putstr("Usage: ./rtv1 [ parallel mode flag ] {target file}\n");
-	ft_putstr("parallel mode flag\n  -c : use CPU\n  -g : use GPU\n");
-	return (0);
+	ft_putendl("Usage: ./rtv1 [ parallel mode ] [ deep trace ] {target file}\n"\
+		"parallel mode\n  -c, --cpu : use CPU\n  -g, --gpu : use GPU\n"\
+		"deep trace\n  -d, --deep-trace :"\
+		"ray trace including reflection and refraction");
+	return (1);
 }
 
-int				main(int argc, char **argv)
+int				main(int argc, char **args)
 {
-	int		flag_index;
+	int		i;
+	char	options;
+	char	*scene_src;
 
-	if (argc <= 1 || argc > 3)
-		return (print_usage());
-	if (argc == 2)
-		play(argv[1], CL_DEVICE_TYPE_GPU);
-	flag_index = 1;
-	while (flag_index < 3)
+	options = init_options();
+	if (argc >= 3)
 	{
-		if (argv[flag_index][0] == '-')
-		{
-			if (ft_strcmp(argv[flag_index], "-c") == 0)
-				play(argv[3 - flag_index], CL_DEVICE_TYPE_CPU);
-			if (ft_strcmp(argv[flag_index], "-g") == 0)
-				play(argv[3 - flag_index], CL_DEVICE_TYPE_GPU);
-		}
-		flag_index++;
+		if (handle_options(&options, &(args[1]), argc - 1) == RTP_FAIL)
+			return (print_usage());
 	}
+	scene_src = NULL;
+	i = 1;
+	while (i < argc)
+	{
+		if (args[i][0] != '-')
+			scene_src = args[i];
+		i++;
+	}
+	if (scene_src == NULL)
+		return (print_usage());
+	play(scene_src, options);
 	return (0);
 }

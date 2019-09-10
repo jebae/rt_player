@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/17 14:31:49 by jebae             #+#    #+#             */
-/*   Updated: 2019/09/09 14:26:04 by jebae            ###   ########.fr       */
+/*   Updated: 2019/09/10 17:41:13 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ int			clk_create_context(t_clkit *clkit)
 		clkit->devices,
 		NULL,
 		NULL,
-		&ret
-	);
+		&ret);
 	if (clk_check_create_context(ret) == CLKIT_FAIL)
 		return (CLKIT_FAIL);
 	clkit->context.created = CLKIT_TRUE;

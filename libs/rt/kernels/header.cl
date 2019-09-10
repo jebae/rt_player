@@ -173,6 +173,7 @@ typedef struct				s_rt_settings
 {
 	int					num_objects;
 	int					num_lights;
+	int					deep_trace;
 	t_vec4				i_a;
 	__global char		*objects_buf;
 	__global char		*lights_buf;
@@ -185,6 +186,7 @@ typedef struct				s_rt_settings_args
 	int						num_objects;
 	int						num_lights;
 	int						parallel_mode;
+	int						deep_trace;
 	size_t					objects_buf_size;
 	size_t					lights_buf_size;
 	t_ray_grid_properties	ray_grid_props;
@@ -218,9 +220,7 @@ t_vec4						mat3_cramer_solution(
 t_rt_settings			get_rt_settings(
 	__global char *objects_buf,
 	__global char *lights_buf,
-	int num_objects,
-	int num_lights,
-	t_vec4 i_a
+	t_rt_settings_args args
 );
 
 /*

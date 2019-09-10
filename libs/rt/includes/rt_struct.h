@@ -127,6 +127,7 @@ typedef struct				s_rt_settings
 	int						num_objects;
 	int						num_lights;
 	int						parallel_mode;
+	int						deep_trace;
 	size_t					objects_buf_size;
 	size_t					lights_buf_size;
 	t_ray_grid_properties	ray_grid_props;

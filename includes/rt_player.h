@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/01 17:18:49 by jebae             #+#    #+#             */
-/*   Updated: 2019/09/09 18:34:01 by jebae            ###   ########.fr       */
+/*   Updated: 2019/09/10 17:38:01 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,13 @@
 # define RTP_FALSE						0
 # define RTP_SUCCESS					1
 # define RTP_FAIL						0
+# define RTP_OPTION_PARALLEL_GPU		(1 << 0)
+# define RTP_OPTION_DEEP_TRACE			(1 << 1)
 
 # define MLX_BPP						32
 # define MLX_ENDIAN						0
+# define MLX_CLOSE_WINDOW				17
+# define MLX_HOOK_MASK					1L << 17
 
 # define KEY_ESC						53
 # define KEY_LEFT						123
@@ -43,18 +47,19 @@
 # define KEY_K							40
 # define KEY_LEFT_BRACKET				33
 # define KEY_RIGHT_BRACKET				30
+# define KEY_SPACE						49
 
 # define WIDTH							1600
 # define HEIGHT							1200
 
 typedef struct			s_dispatcher
 {
-	int					parallel_mode;
+	char				options;
 	int					object_index;
 	void				*p_mlx;
 	void				*p_win;
 	void				*p_img;
-	t_rt_settings	*settings;
+	t_rt_settings		*settings;
 	t_clkit				*clkit;
 }						t_dispatcher;
 
@@ -68,7 +73,7 @@ int						key_select_object(
 	t_dispatcher *dispatcher
 );
 
-void					key_esc(t_dispatcher *dispatcher);
+int						key_esc(t_dispatcher *dispatcher);
 
 void					key_left(t_dispatcher *dispatcher);
 
@@ -101,6 +106,11 @@ void					key_k(t_dispatcher *dispatcher);
 void					key_left_bracket(t_dispatcher *dispatcher);
 
 void					key_right_bracket(t_dispatcher *dispatcher);
+
+int						key_deep_trace_mode(
+	int keycode,
+	t_dispatcher *dispatcher
+);
 
 /*
 ** setting
@@ -160,11 +170,18 @@ void					clear_all(t_dispatcher *dispatcher);
 ** handle error
 */
 int						rtp_print_err(const char *msg);
+
 int						rtp_print_memalloc_err(const char *target);
 
 /*
-** test
+** handle options
 */
-void					test_scene2(char *scene_src, int parallel_mode);
+int						handle_options(
+	char *options,
+	char **args,
+	int num_args
+);
+
+char					init_options(void);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/17 14:31:05 by jebae             #+#    #+#             */
-/*   Updated: 2019/06/17 14:31:05 by jebae            ###   ########.fr       */
+/*   Updated: 2019/09/10 17:41:49 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,7 @@ int			clk_create_buffer(t_clk_mem *mem, t_create_buffer_args *args)
 		args->flags,
 		args->size,
 		args->host_ptr,
-		&ret
-	);
+		&ret);
 	if (clk_check_create_buffer(ret) == CLKIT_FAIL)
 		return (CLKIT_FAIL);
 	mem->created = CLKIT_TRUE;

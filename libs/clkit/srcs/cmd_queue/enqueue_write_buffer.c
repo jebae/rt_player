@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/17 14:29:01 by jebae             #+#    #+#             */
-/*   Updated: 2019/06/17 14:29:02 by jebae            ###   ########.fr       */
+/*   Updated: 2019/09/10 17:39:38 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int			clk_enqueue_write_buffer(t_enqueue_buffer_args *args)
 		args->offset,
 		args->size,
 		args->host_buf,
-		0, NULL, NULL
-	);
+		0, NULL, NULL);
 	return (clk_check_enqueue_write_buffer(ret));
 }

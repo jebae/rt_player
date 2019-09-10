@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/17 14:31:58 by jebae             #+#    #+#             */
-/*   Updated: 2019/09/09 17:35:23 by jebae            ###   ########.fr       */
+/*   Updated: 2019/09/10 17:40:58 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,7 @@ int							clk_create_cmd_queues(t_clkit *clkit)
 			clkit->context.obj,
 			clkit->devices[i],
 			0,
-			&ret
-		);
+			&ret);
 		if (clk_check_create_cmd_queue(ret) == CLKIT_FAIL)
 			return (CLKIT_FAIL);
 		clkit->cmd_queues[i].created = CLKIT_TRUE;

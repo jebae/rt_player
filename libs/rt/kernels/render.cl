@@ -7,12 +7,11 @@ __kernel void		render(
 {
 	int						idx = get_global_id(0);
 	t_ray					ray;
-	t_rt_settings		settings;
+	t_rt_settings			settings;
 	t_trace_record			rec;
 	t_trace_record_queue	rec_queue;
 
-	settings = get_rt_settings(objects_buf, lights_buf,
-		settings_args.num_objects, settings_args.num_lights, settings_args.i_a);
+	settings = get_rt_settings(objects_buf, lights_buf, settings_args);
 	ray = ray_origin(
 		&(settings_args.ray_grid_props),
 		idx % settings_args.window_width, idx / settings_args.window_width);

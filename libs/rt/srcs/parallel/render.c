@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/01 17:01:50 by jebae             #+#    #+#             */
-/*   Updated: 2019/09/09 16:25:05 by jebae            ###   ########.fr       */
+/*   Updated: 2019/09/10 17:44:53 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int			render_scene(t_clkit *clkit, t_rt_settings *settings)
 		settings->window_width * settings->window_height) == RT_FAIL)
 		return (RT_FAIL);
 	if (enqueue_read_buffer(clkit->cmd_queues,
-		&(clkit->mems[RT_CL_MEM_IMAGE]), settings->img_buf, settings) == RT_FAIL)
+		&(clkit->mems[RT_CL_MEM_IMAGE]),
+		settings->img_buf, settings) == RT_FAIL)
 		return (RT_FAIL);
 	return (execute_cmd_queue(clkit->cmd_queues));
 }

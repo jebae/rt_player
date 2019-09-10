@@ -42,7 +42,7 @@ int			ray_trace(
 		shade = ray_color(rec, settings);
 		shade = scalar_mul_vec(rec->coeff, &shade);
 		rgb = vec_plus_vec(&rgb, &shade);
-		if (rec->depth >= RT_MAX_DEPTH)
+		if (!settings->deep_trace || rec->depth >= RT_MAX_DEPTH)
 			continue ;
 		if (reflect_record(rec, &new_rec, settings))
 			push_rec_queue(rec_queue, new_rec);

@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/17 14:28:56 by jebae             #+#    #+#             */
-/*   Updated: 2019/06/17 14:28:56 by jebae            ###   ########.fr       */
+/*   Updated: 2019/09/10 17:39:26 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int			clk_enqueue_ndrange_kernel(
 		NULL,
 		args->global_work_size,
 		args->local_work_size,
-		0, NULL, NULL
-	);
+		0, NULL, NULL);
 	return (clk_check_enqueue_ndrange_kernel(ret));
 }

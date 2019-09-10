@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/01 17:06:55 by jebae             #+#    #+#             */
-/*   Updated: 2019/09/09 18:21:19 by jebae            ###   ########.fr       */
+/*   Updated: 2019/09/10 17:43:12 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,8 +100,8 @@ void						clear_rt_settings(t_rt_settings *settings);
 /*
 ** handle error
 */
-int		rt_print_err(const char *msg);
+int							rt_print_err(const char *msg);
 
-int		rt_print_memalloc_err(const char *target);
+int							rt_print_memalloc_err(const char *target);
 
 #endif

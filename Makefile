@@ -100,6 +100,8 @@ SRC_CLEAR = clear.c\
 
 SRC_HANDLE_ERROR = handle_error.c\
 
+SRC_HANDLE_OPTIONS = handle_options.c\
+
 # objs
 OBJS = $(addprefix $(OBJDIR)/,$(SRC_MAIN:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/,$(SRC_EVENTS:.c=.o))
@@ -108,6 +110,7 @@ OBJS += $(addprefix $(OBJDIR)/,$(SRC_MLX:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/,$(SRC_MAP_SCENE:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/,$(SRC_CLEAR:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/,$(SRC_HANDLE_ERROR:.c=.o))
+OBJS += $(addprefix $(OBJDIR)/,$(SRC_HANDLE_OPTIONS:.c=.o))
 
 # compile objs
 HEADERS = $(INCDIR)/rt_player.h\
@@ -135,6 +138,8 @@ $(OBJDIR)/%.o : $(SRCDIR)/map_scene/%.c $(HEADERS)
 $(OBJDIR)/%.o : $(SRCDIR)/clear/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 $(OBJDIR)/%.o : $(SRCDIR)/handle_error/%.c $(HEADERS)
+	@$(call compile_obj,$<,$@)
+$(OBJDIR)/%.o : $(SRCDIR)/handle_options/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 
 # build

@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/17 14:30:38 by jebae             #+#    #+#             */
-/*   Updated: 2019/06/17 14:30:38 by jebae            ###   ########.fr       */
+/*   Updated: 2019/09/10 17:40:04 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ int			clk_create_program(
 		1,
 		(const char **)&src,
 		NULL,
-		&ret
-	);
+		&ret);
 	if (clk_check_create_program(ret) == CLKIT_FAIL)
 		return (CLKIT_FAIL);
 	program->created = CLKIT_TRUE;
