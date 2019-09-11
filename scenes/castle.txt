@@ -1,0 +1,200 @@
+scene{
+	camera{
+	location = 0.0f, 0.0f, 10.0, 1.0;
+	focus = 0.0, 15.0, 5.0, 1.0;
+	}
+	objects{
+		plane{
+			reflectivity = 0.3f;
+			transparency = 0.5f;
+			specular_alpha = 1;
+			ior = 1.5f;
+			color = 0.3f, 0.3f, 1.0f, 1;
+			n = 0.0f, 0.0f, 1.0f, 1;
+			p = 0.0f, 0.0f, 0.0f, 1;
+			}
+		cylinder{
+			specular_alpha = 50;
+			transparency = 0.0f;
+			color = 0.5f, 0.5f, 0.5f, 1;
+			r = 1.0f;
+			h = 26.0f;
+			c = 13.2f, 30.0, 2.0, 1.0f;
+			v = -1.0f, 0.0f, 0.0f, 1.0f;
+			}
+		cylinder{
+			specular_alpha = 50;
+			transparency = 0.0f;
+			color = 0.5f, 0.5f, 0.5f, 1;
+			r = 1.0f;
+			h = 3.0f;
+			c = 13.0f, 30.0, 0.0, 1.0f;
+			v = 0.0f, 0.0f, 1.0f, 1.0f;
+			}
+		cylinder{
+			specular_alpha = 50;
+			transparency = 0.0f;
+			color = 0.5f, 0.5f, 0.5f, 1;
+			r = 0.5f;
+			h = 2.0f;
+			c = 13.0f, 30.0, 3.0, 1.0f;
+			v = 0.0f, 0.0f, 1.0f, 1.0f;
+			}
+		cone{
+			specular_alpha = 50;
+			transparency = 0.0f;
+			ior = 1.5f;
+			color = 0.3f, 0.6f, 0.7f, 1;
+			theta = 7.0f;
+			h = 2.0f;
+			c = 13.0f, 30.0f, 7.0f, 1.0f;
+			v = 0.0f, 0.0f, -1.0f, 1.0f;
+			}
+		cylinder{
+			specular_alpha = 50;
+			transparency = 0.0f;
+			color = 0.5f, 0.5f, 0.5f, 1;
+			r = 1.0f;
+			h = 3.0f;
+			c = -13.0f, 30.0, 0.0, 1.0f;
+			v = 0.0f, 0.0f, 1.0f, 1.0f;
+			}
+		cylinder{
+			specular_alpha = 50;
+			transparency = 0.0f;
+			color = 0.5f, 0.5f, 0.5f, 1;
+			r = 0.5f;
+			h = 2.0f;
+			c = -13.0f, 30.0, 3.0, 1.0f;
+			v = 0.0f, 0.0f, 1.0f, 1.0f;
+			}
+		cone{
+			specular_alpha = 50;
+			transparency = 0.0f;
+			ior = 1.5f;
+			color = 0.3f, 0.6f, 0.7f, 1;
+			theta = 7.0f;
+			h = 2.0f;
+			c = -13.0f, 30.0f, 7.0f, 1.0f;
+			v = 0.0f, 0.0f, -1.0f, 1.0f;
+			}
+		cylinder{
+			specular_alpha = 50;
+			transparency = 0.0f;
+			color = 0.5f, 0.5f, 0.5f, 1;
+			r = 2.0f;
+			h = 7.0f;
+			c = 7.0f, 32.0, 0.0, 1.0f;
+			v = 0.0f, 0.0f, 1.0f, 1.0f;
+			}
+		cylinder{
+			specular_alpha = 50;
+			transparency = 0.0f;
+			color = 0.5f, 0.5f, 0.5f, 1;
+			r = 1.5f;
+			h = 3.0f;
+			c = 7.0f, 32.0, 7.0, 1.0f;
+			v = 0.0f, 0.0f, 1.0f, 1.0f;
+			}
+		cone{
+			specular_alpha = 50;
+			transparency = 0.0f;
+			ior = 1.5f;
+			color = 0.3f, 0.6f, 0.7f, 1;
+			theta = 5.0f;
+			h = 4.0f;
+			c = 7.0f, 32.0, 14.0, 1.0f;
+			v = 0.0f, 0.0f, -1.0f, 1.0f;
+			}
+		cylinder{
+			specular_alpha = 50;
+			transparency = 0.0f;
+			color = 0.5f, 0.5f, 0.5f, 1;
+			r = 2.0f;
+			h = 7.0f;
+			c = -7.0f, 32.0, 0.0, 1.0f;
+			v = 0.0f, 0.0f, 1.0f, 1.0f;
+			}
+		cylinder{
+			specular_alpha = 50;
+			transparency = 0.0f;
+			color = 0.5f, 0.5f, 0.5f, 1;
+			r = 1.5f;
+			h = 3.0f;
+			c = -7.0f, 32.0, 7.0, 1.0f;
+			v = 0.0f, 0.0f, 1.0f, 1.0f;
+			}
+		cone{
+			specular_alpha = 50;
+			transparency = 0.0f;
+			ior = 1.5f;
+			color = 0.3f, 0.6f, 0.7f, 1;
+			theta = 5.0f;
+			h = 4.0f;
+			c = -7.0f, 32.0, 14.0, 1.0f;
+			v = 0.0f, 0.0f, -1.0f, 1.0f;
+			}
+		cylinder{
+			specular_alpha = 50;
+			transparency = 0.0f;
+			color = 0.5f, 0.5f, 0.5f, 1;
+			r = 3.0f;
+			h = 10.0f;
+			c = 0.0f, 35.0, 0.0, 1.0f;
+			v = 0.0f, 0.0f, 1.0f, 1.0f;
+			}
+		cylinder{
+			specular_alpha = 50;
+			transparency = 0.0f;
+			color = 0.5f, 0.5f, 0.5f, 1;
+			r = 2.3f;
+			h = 5.0f;
+			c = 0.0f, 35.0, 10.0, 1.0f;
+			v = 0.0f, 0.0f, 1.0f, 1.0f;
+			}
+		cone{
+			specular_alpha = 50;
+			transparency = 0.0f;
+			ior = 1.5f;
+			color = 0.3f, 0.6f, 0.7f, 1;
+			theta = 5.0f;
+			h = 5.0f;
+			c = 0.0f, 35.0, 20.0, 1.0f;
+			v = 0.0f, 0.0f, -1.0f, 1.0f;
+			}
+		cylinder{
+			specular_alpha = 50;
+			transparency = 0.0f;
+			color = 0.7f, 0.3f, 0.0f, 1;
+			r = 1.5f;
+			h = 5.0f;
+			c = 5.0f, 20.0, 0.0, 1.0f;
+			v = -1.0f, 0.6f, 0.0f, 1.0f;
+			}
+		cylinder{
+			specular_alpha = 50;
+			transparency = 0.0f;
+			color = 0.7f, 0.3f, 0.0f, 1;
+			r = 0.1f;
+			h = 5.0f;
+			c = 3.0f, 21.2, 0.0, 1.0f;
+			v = 0.0f, 0.0f, 1.0f, 1.0f;
+			}
+		cone{
+			specular_alpha = 50;
+			transparency = 0.0f;
+			ior = 1.5f;
+			color = 0.8f, 0.8f, 1.0f, 1;
+			theta = 5.0f;
+			h = 2.0f;
+			c = 4.7f, 20.2, 4.0, 1.0f;
+			v = -1.0f, 1.0f, 0.0f, 1.0f;
+			}
+	}
+	lights{
+		spherical{
+			intensity = 3000.0f, 3000.0f, 3000.0f, 1;
+			origin = 0.0f, 15.0f, 10.0f, 1;
+			}
+		}
+}
